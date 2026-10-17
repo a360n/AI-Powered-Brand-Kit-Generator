@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>مولّد الهوية الشخصية بالذكاء الاصطناعي | AI Personal Brand Kit Generator — Ali Nasser</title>
-  <meta name="description" content="أداة مجانية وتفاعلية لتوليد حقيبة هويتك البصرية الشخصية الكاملة (١١ تصميم احترافي للينكدإن والبورتفوليو) بخطوات بسيطة عبر وكيل الذكاء الاصطناعي الخاص بك. تطوير: علي ناصر (Ali Nasser)." />
+  <meta name="description" content="أداة مجانية وتفاعلية لتوليد حقيبة هويتك البصرية الشخصية الكاملة (11 تصميم احترافي للينكدإن والبورتفوليو) بخطوات بسيطة عبر وكيل الذكاء الاصطناعي الخاص بك. Built & Crafted by: Ali Nasser." />
   <meta name="author" content="Ali Nasser (www.ali-nasser.dev)" />
 
   <!-- Open Graph / LinkedIn Preview Meta Tags -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="AI-Powered Personal Brand Kit Generator | مولّد الهوية البصرية بالذكاء الاصطناعي" />
-  <meta property="og:description" content="اصنع حقيبة هويتك الشخصية الاحترافية (١١ تصميم متكامل للينكدإن والبورتفوليو) في ٣ خطوات بسيطة مجاناً — تطوير علي ناصر (Ali Nasser)" />
+  <meta property="og:title" content="AI-Powered Personal Brand Kit Generator — Ali Nasser" />
+  <meta property="og:description" content="Generate your complete 11-asset Personal Brand Kit in 3 guided steps for free — Built & Crafted by: Ali Nasser" />
   <meta property="og:image" content="REFERENCE_IMAGE.JPG" />
 
   <!-- Google Fonts: Cairo (Arabic), Plus Jakarta Sans (English), JetBrains Mono (Code) -->
@@ -30,27 +30,46 @@
         <div class="brand-titles">
           <span class="brand-name" data-ar="مولّد حقيبة الهوية الشخصية بالذكاء الاصطناعي" data-en="AI Personal Brand Kit Generator">مولّد حقيبة الهوية الشخصية بالذكاء الاصطناعي</span>
           <span class="brand-creator-tag">
-            <span data-ar="تطوير وإهداء من:" data-en="Built & Crafted by:">تطوير وإهداء من:</span>
-            <strong>Ali Nasser (علي ناصر)</strong>
+            Built &amp; Crafted by: <strong>Ali Nasser</strong>
           </span>
         </div>
       </div>
 
       <nav class="topbar-actions" aria-label="Creator links and language switcher">
         <a href="https://www.ali-nasser.dev" target="_blank" rel="noopener noreferrer" class="social-pill highlight-pill">
-          <span>🌐</span>
+          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
           <span>ali-nasser.dev</span>
         </a>
         <a href="https://www.linkedin.com/in/ali-nasser-dev/" target="_blank" rel="noopener noreferrer" class="social-pill">
-          <span>💼</span>
+          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
           <span>LinkedIn</span>
         </a>
         <a href="https://github.com/a360n/AI-Powered-Brand-Kit-Generator" target="_blank" rel="noopener noreferrer" class="social-pill">
-          <span>⭐</span>
+          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
           <span>GitHub</span>
         </a>
-        <button type="button" id="langToggleBtn" class="lang-btn" aria-label="Toggle language">
-          <span data-ar="English 🇬🇧" data-en="العربية 🇸🇦">English 🇬🇧</span>
+
+        <!-- Prominent Language Toggle Button -->
+        <button type="button" id="langToggleBtn" class="lang-switcher-prominent" aria-label="Switch Language between Arabic and English">
+          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 8l6 6"></path>
+            <path d="M4 14l6-6 2-3"></path>
+            <path d="M2 5h12"></path>
+            <path d="M7 2h1"></path>
+            <path d="M22 22l-5-10-5 10"></path>
+            <path d="M14 18h6"></path>
+          </svg>
+          <span id="langToggleLabel" data-ar="English | العربية" data-en="العربية | English">English | العربية</span>
         </button>
       </nav>
     </div>
@@ -58,472 +77,929 @@
 
   <main class="container">
 
-    <!-- Hero Section -->
-    <section class="hero" aria-labelledby="heroHeading">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span>✨</span>
-          <span data-ar="مجاناً ١٠٠٪ • بدون تسجيل • مصمم لغير التقنيين" data-en="100% Free • Zero Sign-up • Built for Everyone">مجاناً ١٠٠٪ • بدون تسجيل • مصمم لغير التقنيين</span>
-        </div>
-        <h1 id="heroHeading" class="balance-heading">
-          <span data-ar="اصنع حقيبة هويتك البصرية الاحترافية" data-en="Generate Your Complete Professional">اصنع حقيبة هويتك البصرية الاحترافية</span>
-          <span class="accent-text" data-ar="في ٣ خطوات بسيطة فقط!" data-en="Personal Brand Kit in 3 Simple Steps!">في ٣ خطوات بسيطة فقط!</span>
-        </h1>
-        <p class="hero-subtitle pretty-copy" data-ar="لا تحتاج لأي خبرة في التصميم أو البرمجة! يقوم هذا الدليل التفاعلي بمساعدتك على استخراج بياناتك من وكيل الذكاء الاصطناعي الخاص بك (ChatGPT / Gemini / Claude)، ثم يحقنها تلقائياً في قالب تصميم عالمي ليولّد لك ١١ تصميماً متناسقاً لحسابك في لينكدإن وموقعك الشخصي." data-en="No design or coding skills needed! This interactive wizard helps you extract your verified profile data from your AI assistant, automatically injects it into our agency-grade design system prompt, and prepares everything you need to generate 11 cohesive personal brand assets.">
-          لا تحتاج لأي خبرة في التصميم أو البرمجة! يقوم هذا الدليل التفاعلي بمساعدتك على استخراج بياناتك من وكيل الذكاء الاصطناعي الخاص بك (ChatGPT / Gemini / Claude)، ثم يحقنها تلقائياً في قالب تصميم عالمي ليولّد لك ١١ تصميماً متناسقاً لحسابك في لينكدإن وموقعك الشخصي.
-        </p>
-        <div class="hero-pills">
-          <span class="feature-chip" data-ar="🎨 لوحة ألوان الهوية (٣ ألوان)" data-en="🎨 3-Color Brand Palette">🎨 لوحة ألوان الهوية (٣ ألوان)</span>
-          <span class="feature-chip" data-ar="🖼️ بانر لينكدإن (فاتح + داكن)" data-en="🖼️ LinkedIn Banners (Light & Dark)">🖼️ بانر لينكدإن (فاتح + داكن)</span>
-          <span class="feature-chip" data-ar="📸 ٣ صور شخصية احترافية" data-en="📸 3 Studio Portraits">📸 ٣ صور شخصية احترافية</span>
-          <span class="feature-chip" data-ar="🚀 بنرات البورتفوليو والكاروسيل" data-en="🚀 Portfolio & Carousel Covers">🚀 بنرات البورتفوليو والكاروسيل</span>
-        </div>
-      </div>
+    <!-- =========================================================================
+         1. GUIDED PAGE-BY-PAGE FLOW (SHOWN ON INITIAL VISIT & REFRESH)
+         ========================================================================= -->
+    <div id="guidedWizardView" class="guided-wizard-wrapper">
 
-      <div class="hero-preview-card">
-        <div class="preview-img-wrap" id="openRefPreviewBtn" role="button" tabindex="0" aria-label="View Reference Design Board">
-          <img src="REFERENCE_IMAGE.JPG" alt="نموذج الهوية البصرية المرجعية - Reference Personal Brand Kit" fetchpriority="high" />
-          <span class="preview-overlay-tag" data-ar="🔍 اضغط لمعاينة الحقيبة الكاملة" data-en="🔍 Click to Inspect Full Kit">🔍 اضغط لمعاينة الحقيبة الكاملة</span>
+      <!-- Guided Progress Indicator -->
+      <div class="guided-progress-bar" aria-label="Guided steps progress">
+        <div class="guided-progress-steps">
+          <span class="guided-dot active" data-gdot="0" data-ar="البداية والشرح" data-en="Overview">البداية والشرح</span>
+          <span class="guided-dot" data-gdot="1" data-ar="1. الخطوة الأولى" data-en="1. Step One">1. الخطوة الأولى</span>
+          <span class="guided-dot" data-gdot="2" data-ar="2. الخطوة الثانية" data-en="2. Step Two">2. الخطوة الثانية</span>
+          <span class="guided-dot" data-gdot="3" data-ar="3. الخطوة الأخيرة" data-en="3. Final Step">3. الخطوة الأخيرة</span>
         </div>
-        <div class="preview-caption">
-          <span data-ar="نموذج التصميم المرجعي (١١ قطعة فنية متكاملة)" data-en="Reference Design System (11 Cohesive Assets)">نموذج التصميم المرجعي (١١ قطعة فنية متكاملة)</span>
-          <button type="button" class="toast-close-btn download-ref-trigger" data-ar="⬇️ تحميل المرجع" data-en="⬇️ Download Ref">⬇️ تحميل المرجع</button>
-        </div>
-      </div>
-    </section>
 
-    <!-- 3-Step Interactive Stepper -->
-    <nav class="stepper-nav" aria-label="خطوات بناء الهوية الشخصية">
-      <button type="button" class="step-tab active" data-step="1">
-        <div class="step-number">1</div>
-        <div class="step-meta">
-          <span class="step-label" data-ar="الخطوة الأولى" data-en="Step 01">الخطوة الأولى</span>
-          <span class="step-title" data-ar="انسخ برومبت استخراج الهوية" data-en="Copy Brand Details Prompt">انسخ برومبت استخراج الهوية</span>
-        </div>
-      </button>
-
-      <button type="button" class="step-tab" data-step="2">
-        <div class="step-number">2</div>
-        <div class="step-meta">
-          <span class="step-label" data-ar="الخطوة الثانية" data-en="Step 02">الخطوة الثانية</span>
-          <span class="step-title" data-ar="الصق النتيجة وراجع بياناتك" data-en="Paste JSON & Customize">الصق النتيجة وراجع بياناتك</span>
-        </div>
-      </button>
-
-      <button type="button" class="step-tab" data-step="3">
-        <div class="step-number">3</div>
-        <div class="step-meta">
-          <span class="step-label" data-ar="الخطوة الثالثة والأخيرة" data-en="Step 03 (Final)">الخطوة الثالثة والأخيرة</span>
-          <span class="step-title" data-ar="انسخ البرومبت المحقون + المرفقات" data-en="Get Final Prompt & Assets">انسخ البرومبت المحقون + المرفقات</span>
-        </div>
-      </button>
-    </nav>
-
-    <!-- ==================== STEP 1 PANEL ==================== -->
-    <section class="step-panel active" data-panel="1" aria-labelledby="step1Title">
-      <div class="panel-header">
-        <div class="panel-title-group">
-          <h2 id="step1Title" data-ar="١. استخرج تفاصيل هويتك بصيغة JSON من وكيلك الذكي" data-en="1. Extract Your Personal Brand JSON from Your AI Assistant">١. استخرج تفاصيل هويتك بصيغة JSON من وكيلك الذكي</h2>
-          <p data-ar="انسخ هذا البرومبت وأرسله لوكيل الذكاء الاصطناعي الذي يعرفك (أو أرفق معه سيرتك الذاتية CV). سيقوم الوكيل بإعطائك كود JSON جاهز يحتوي على ألوانك وعناوينك ومهاراتك." data-en="Copy this prompt and send it to your favorite AI assistant (or attach your CV/Resume with it). Your AI will reply with a clean JSON block containing your brand colors, headlines, bio, and skills.">
-            انسخ هذا البرومبت وأرسله لوكيل الذكاء الاصطناعي الذي يعرفك (أو أرفق معه سيرتك الذاتية CV). سيقوم الوكيل بإعطائك كود JSON جاهز يحتوي على ألوانك وعناوينك ومهاراتك.
-          </p>
-        </div>
-        <button type="button" id="copyStep1Btn" class="btn btn-primary btn-lg">
-          <span>📋</span>
-          <span data-ar="نسخ برومبت الخطوة الأولى" data-en="Copy Step 1 Prompt">نسخ برومبت الخطوة الأولى</span>
+        <button type="button" id="skipToWorkspaceBtn" class="toast-close-btn">
+          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          <span data-ar="الواجهة المتقدمة الكاملة" data-en="Full Workspace View">الواجهة المتقدمة الكاملة</span>
         </button>
       </div>
 
-      <div class="how-it-works-grid">
-        <div class="mini-guide-card">
-          <div class="mini-guide-icon">1</div>
-          <div>
-            <h3 data-ar="انسخ البرومبت بالأسفل" data-en="Copy the Prompt Below">انسخ البرومبت بالأسفل</h3>
-            <p data-ar="اضغط زر النسخ ليتم نسخ برومبت (Personal Brand Details JSON) بالكامل بضغطة واحدة." data-en="Click the copy button to grab the entire Personal Brand Details JSON prompt in one click.">اضغط زر النسخ ليتم نسخ برومبت (Personal Brand Details JSON) بالكامل بضغطة واحدة.</p>
+      <!-- PAGE 0: INTRO & EXPLANATION PAGE -->
+      <section class="guided-page active" data-gpage="0" aria-labelledby="gpage0Heading">
+        <div class="guided-page-tag">
+          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          <span data-ar="دليل إرشادي تفاعلي خطوة بخطوة — مجاناً بالكامل" data-en="Interactive Step-by-Step Guided Flow — 100% Free">دليل إرشادي تفاعلي خطوة بخطوة — مجاناً بالكامل</span>
+        </div>
+
+        <h1 id="gpage0Heading" tabindex="-1" class="balance-heading" data-ar="مرحباً بك في مولّد الهوية البصرية الشخصية بالذكاء الاصطناعي" data-en="Welcome to the AI-Powered Personal Brand Kit Generator">
+          مرحباً بك في مولّد الهوية البصرية الشخصية بالذكاء الاصطناعي
+        </h1>
+
+        <p class="guided-lead pretty-copy" data-ar="صُممت هذه الأداة لتأخذ بيدك خطوة بخطوة — بدون أي تعقيد تقني — لتوليد حقيبة تسويقية وبصرية كاملة (11 تصميم احترافي متناسق لحسابك في لينكدإن والبورتفوليو) بالاعتماد على وكيل الذكاء الاصطناعي الخاص بك." data-en="This tool guides you page by page—with zero technical complexity—to generate a complete 11-asset Personal Branding Kit (LinkedIn banners, studio portraits, portfolio headers, and carousels) using your own AI assistant.">
+          صُممت هذه الأداة لتأخذ بيدك خطوة بخطوة — بدون أي تعقيد تقني — لتوليد حقيبة تسويقية وبصرية كاملة (11 تصميم احترافي متناسق لحسابك في لينكدإن والبورتفوليو) بالاعتماد على وكيل الذكاء الاصطناعي الخاص بك.
+        </p>
+
+        <div class="intro-overview-grid">
+          <div class="intro-steps-list">
+            <div class="intro-step-item">
+              <div class="intro-step-num">1</div>
+              <div>
+                <h3 data-ar="الخطوة الأولى: نسخ برومبت استخراج الهوية" data-en="Step 1: Copy the Identity Extraction Prompt">الخطوة الأولى: نسخ برومبت استخراج الهوية</h3>
+                <p data-ar="تنسخ البرومبت الأول وترسله لوكيل الذكاء الاصطناعي الخاص بك ليعطيك بياناتك المهنية وألوانك بصيغة JSON." data-en="Copy the first prompt and send it to your AI assistant so it outputs your verified brand details in JSON format.">تنسخ البرومبت الأول وترسله لوكيل الذكاء الاصطناعي الخاص بك ليعطيك بياناتك المهنية وألوانك بصيغة JSON.</p>
+              </div>
+            </div>
+
+            <div class="intro-step-item">
+              <div class="intro-step-num">2</div>
+              <div>
+                <h3 data-ar="الخطوة الثانية: لصق المخرجات والتحقق التلقائي" data-en="Step 2: Paste Output & Automatic Verification">الخطوة الثانية: لصق المخرجات والتحقق التلقائي</h3>
+                <p data-ar="تلصق نتيجة وكيلك هنا، ويقوم الموقع بالتحقق منها تلقائياً وحقنها في نظام التصميم." data-en="Paste your AI's JSON response here; the site automatically validates compatibility and injects your variables.">تلصق نتيجة وكيلك هنا، ويقوم الموقع بالتحقق منها تلقائياً وحقنها في نظام التصميم.</p>
+              </div>
+            </div>
+
+            <div class="intro-step-item">
+              <div class="intro-step-num">3</div>
+              <div>
+                <h3 data-ar="الخطوة الأخيرة: استلام البرومبت النهائي والملفات المرجعية" data-en="Final Step: Copy Ready Master Prompt & Reference Assets">الخطوة الأخيرة: استلام البرومبت النهائي والملفات المرجعية</h3>
+                <p data-ar="تنسخ البرومبت النهائي الجاهز وتحمّل الصورة المرجعية REFERENCE_IMAGE.JPG وترفق صورتك الشخصية USER_PHOTO لوكيلك ليتكفل بالباقي." data-en="Copy the injected Master Prompt, download REFERENCE_IMAGE.JPG, and attach your USER_PHOTO to your AI assistant.">تنسخ البرومبت النهائي الجاهز وتحمّل الصورة المرجعية REFERENCE_IMAGE.JPG وترفق صورتك الشخصية USER_PHOTO لوكيلك ليتكفل بالباقي.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-preview-card">
+            <div class="preview-img-wrap open-ref-modal-trigger" role="button" tabindex="0" aria-label="View Reference Design Board">
+              <img src="REFERENCE_IMAGE.JPG" alt="Reference Personal Brand Kit Preview" fetchpriority="high" />
+              <span class="preview-overlay-tag">
+                <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <span data-ar="معاينة الحقيبة المرجعية (11 تصميم)" data-en="Preview Reference Kit (11 Assets)">معاينة الحقيبة المرجعية (11 تصميم)</span>
+              </span>
+            </div>
+            <div class="preview-caption">
+              <span data-ar="النموذج المرجعي الذي سيُبنى عليه تصميمك" data-en="Reference system your brand kit will follow">النموذج المرجعي الذي سيُبنى عليه تصميمك</span>
+              <button type="button" class="toast-close-btn download-ref-trigger">
+                <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-ar="تحميل" data-en="Download">تحميل</span>
+              </button>
+            </div>
           </div>
         </div>
 
-        <div class="mini-guide-card">
-          <div class="mini-guide-icon">2</div>
-          <div>
-            <h3 data-ar="أرسله لوكيلك الذكي" data-en="Send to Your AI Agent">أرسله لوكيلك الذكي</h3>
-            <p data-ar="افتح ChatGPT أو Claude أو Gemini والصق البرومبت (وإن لم يكن يعرفك مسبقاً أرفق له سيرتك الذاتية أو نبذة عنك)." data-en="Open ChatGPT, Claude, or Gemini and paste the prompt (attach your resume or bio if starting a fresh chat).">افتح ChatGPT أو Claude أو Gemini والصق البرومبت (وإن لم يكن يعرفك مسبقاً أرفق له سيرتك الذاتية أو نبذة عنك).</p>
-          </div>
+        <div class="guided-actions-bar">
+          <span class="brand-creator-tag">Built &amp; Crafted by: <strong>Ali Nasser</strong></span>
+          <button type="button" id="startGuidedStep1Btn" class="btn btn-primary btn-lg">
+            <span data-ar="ابدأ الآن — الانتقال إلى الخطوة الأولى" data-en="Start Now — Go to Step 1">ابدأ الآن — الانتقال إلى الخطوة الأولى</span>
+            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- PAGE 1: STEP 1 (FIRST PROMPT + COPY BUTTON + AI AGENT BUTTONS + NEXT PAGE BUTTON) -->
+      <section class="guided-page" data-gpage="1" aria-labelledby="gpage1Heading">
+        <div class="guided-page-tag">
+          <span data-ar="الخطوة 1 من 3" data-en="Step 1 of 3">الخطوة 1 من 3</span>
         </div>
 
-        <div class="mini-guide-card">
-          <div class="mini-guide-icon">3</div>
-          <div>
-            <h3 data-ar="انسخ النتيجة وانتقل للخطوة ٢" data-en="Copy the Output & Go to Step 2">انسخ النتيجة وانتقل للخطوة ٢</h3>
-            <p data-ar="سيعطيك وكيلك نتيجة بين قوسين { ... } بصيغة JSON، انسخها ثم انتقل للخطوة الثانية هنا." data-en="Your AI will return a { ... } JSON object. Copy that output and move to Step 2 right here.">سيعطيك وكيلك نتيجة بين قوسين { ... } بصيغة JSON، انسخها ثم انتقل للخطوة الثانية هنا.</p>
-          </div>
-        </div>
-      </div>
+        <h2 id="gpage1Heading" tabindex="-1" data-ar="الخطوة الأولى: انسخ البرومبت الأول وأرسله لوكيل الذكاء الاصطناعي" data-en="Step 1: Copy the First Prompt and Send It to Your AI Assistant">
+          الخطوة الأولى: انسخ البرومبت الأول وأرسله لوكيل الذكاء الاصطناعي
+        </h2>
 
-      <!-- Quick AI Launchers -->
-      <div class="ai-launchers">
-        <span class="ai-launchers-label" data-ar="روابط سريعة لفتح وكيلك الذكي بعد النسخ:" data-en="Quick links to open your AI assistant after copying:">روابط سريعة لفتح وكيلك الذكي بعد النسخ:</span>
-        <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="ai-chip">🤖 ChatGPT ↗</a>
-        <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" class="ai-chip">✨ Google Gemini ↗</a>
-        <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer" class="ai-chip">🧠 Claude AI ↗</a>
-      </div>
+        <p class="guided-lead pretty-copy" data-ar="اضغط على زر (نسخ البرومبت الأول)، ثم افتح وكيل الذكاء الاصطناعي الخاص بك والصق البرومبت هناك. بعد أن يعطيك الوكيل المخرجات بصيغة JSON، اضغط زر الانتقال للخطوة الثانية." data-en="Click 'Copy First Prompt', open your AI assistant, and paste the prompt. Once your AI replies with the JSON output, click the button below to proceed to Step 2.">
+          اضغط على زر (نسخ البرومبت الأول)، ثم افتح وكيل الذكاء الاصطناعي الخاص بك والصق البرومبت هناك. بعد أن يعطيك الوكيل المخرجات بصيغة JSON، اضغط زر الانتقال للخطوة الثانية.
+        </p>
 
-      <!-- Prompt Viewer Box -->
-      <div class="prompt-box-wrapper">
-        <div class="prompt-toolbar">
-          <span class="toolbar-file-badge">
-            <span>📄</span>
-            <span class="mono">Personal_Brand_Details_JSON_Prompt.md</span>
-          </span>
-          <div class="toolbar-actions">
-            <button type="button" id="copyStep1AndNextBtn" class="btn btn-outline-accent">
-              <span data-ar="نسخ البرومبت والانتقال للخطوة ٢ ←" data-en="Copy Prompt & Continue to Step 2 →">نسخ البرومبت والانتقال للخطوة ٢ ←</span>
+        <!-- Prompt Box + Prominent Copy Button -->
+        <div class="prompt-box-wrapper">
+          <div class="prompt-toolbar">
+            <span class="toolbar-file-badge">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span class="mono">Personal_Brand_Details_JSON_Prompt.md</span>
+            </span>
+            <button type="button" id="guidedCopyStep1Btn" class="btn btn-primary">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span data-ar="نسخ البرومبت الأول" data-en="Copy First Prompt">نسخ البرومبت الأول</span>
             </button>
           </div>
+          <pre id="guidedStep1PromptPre" class="prompt-pre mono" aria-label="Step 1 JSON extraction prompt"></pre>
         </div>
-        <pre id="step1PromptPre" class="prompt-pre mono" aria-label="Step 1 JSON extraction prompt"></pre>
-      </div>
 
-      <div class="panel-footer-nav">
-        <span class="brand-creator-tag" data-ar="💡 نصيحة: يمكنك أيضاً تجربة الموقع فوراً في الخطوة ٢ باستخدام زر (بيانات تجريبية)!" data-en="💡 Tip: You can also test Step 2 immediately using the 'Load Demo Data' button!">💡 نصيحة: يمكنك أيضاً تجربة الموقع فوراً في الخطوة ٢ باستخدام زر (بيانات تجريبية)!</span>
-        <button type="button" class="btn btn-primary btn-lg" onclick="document.querySelector('[data-step=\'2\']').click()">
-          <span data-ar="حصلت على النتيجة ← انتقل للخطوة الثانية" data-en="I Got the Output → Go to Step 2">حصلت على النتيجة ← انتقل للخطوة الثانية</span>
-        </button>
-      </div>
-    </section>
-
-    <!-- ==================== STEP 2 PANEL ==================== -->
-    <section class="step-panel" data-panel="2" aria-labelledby="step2Title">
-      <div class="panel-header">
-        <div class="panel-title-group">
-          <h2 id="step2Title" data-ar="٢. الصق مخرجات وكيلك الذكي (JSON) وراجع بياناتك" data-en="2. Paste Your AI's JSON Output & Review Your Brand Data">٢. الصق مخرجات وكيلك الذكي (JSON) وراجع بياناتك</h2>
-          <p data-ar="الصق النتيجة التي أعطاك إياها وكيل الذكاء الاصطناعي في المربع الأول، وسيقوم الموقع تلقائياً بقراءتها وعرضها لك بشكل مرئي لتتأكد منها أو تعدّل أي لون أو نص بسهولة تامة." data-en="Paste the output from your AI assistant into the box. The tool automatically extracts your colors and text so you can visually verify or tweak anything before generating the Master Prompt.">
-            الصق النتيجة التي أعطاك إياها وكيل الذكاء الاصطناعي في المربع الأول، وسيقوم الموقع تلقائياً بقراءتها وعرضها لك بشكل مرئي لتتأكد منها أو تعدّل أي لون أو نص بسهولة تامة.
-          </p>
+        <!-- AI Agent Launcher Box -->
+        <div class="guided-ai-box">
+          <div>
+            <strong style="display: block; font-size: 0.95rem;" data-ar="افتح وكيل الذكاء الاصطناعي الخاص بك:" data-en="Open Your AI Assistant:">افتح وكيل الذكاء الاصطناعي الخاص بك:</strong>
+            <span style="font-size: 0.84rem; color: var(--text-muted);" data-ar="الصق البرومبت المنسوخ في أي من هذه المنصات (أرفق سيرتك الذاتية إن كانت محادثة جديدة)" data-en="Paste the copied prompt into any of these platforms (attach your resume if starting a new chat)">الصق البرومبت المنسوخ في أي من هذه المنصات (أرفق سيرتك الذاتية إن كانت محادثة جديدة)</span>
+          </div>
+          <div class="guided-ai-links">
+            <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent">
+              <span>ChatGPT</span>
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+            <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent">
+              <span>Google Gemini</span>
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+            <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent">
+              <span>Claude AI</span>
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
         </div>
-        <div class="toolbar-actions">
-          <button type="button" id="pasteClipboardBtn" class="btn btn-secondary">
-            <span>📋</span>
-            <span data-ar="لصق تلقائي من الحافظة" data-en="Paste from Clipboard">لصق تلقائي من الحافظة</span>
+
+        <div class="guided-actions-bar">
+          <button type="button" id="guidedBackTo0Btn" class="btn btn-secondary">
+            <span data-ar="السابق: صفحة البداية" data-en="Back: Overview">السابق: صفحة البداية</span>
           </button>
-          <button type="button" id="loadDemoBtn" class="btn btn-outline-accent">
-            <span>⚡</span>
-            <span data-ar="تعبئة بيانات تجريبية (Ali Nasser)" data-en="Load Demo Data (Ali Nasser)">تعبئة بيانات تجريبية (Ali Nasser)</span>
+          <button type="button" id="guidedToStep2Btn" class="btn btn-primary btn-lg">
+            <span data-ar="الانتقال إلى الخطوة الثانية" data-en="Next: Go to Step 2">الانتقال إلى الخطوة الثانية</span>
+            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
           </button>
         </div>
-      </div>
+      </section>
 
-      <div class="step2-grid">
-        <!-- Left/Right Column 1: Raw JSON Paste Area -->
+      <!-- PAGE 2: STEP 2 (PASTE JSON OUTPUT + AUTOMATIC LIVE VALIDATION + FINAL STEP BUTTON) -->
+      <section class="guided-page" data-gpage="2" aria-labelledby="gpage2Heading">
+        <div class="guided-page-tag">
+          <span data-ar="الخطوة 2 من 3" data-en="Step 2 of 3">الخطوة 2 من 3</span>
+        </div>
+
+        <h2 id="gpage2Heading" tabindex="-1" data-ar="الخطوة الثانية: الصق مخرجات الخطوة الأولى للتحقق التلقائي" data-en="Step 2: Paste Step 1 Output for Automatic Verification">
+          الخطوة الثانية: الصق مخرجات الخطوة الأولى للتحقق التلقائي
+        </h2>
+
+        <p class="guided-lead pretty-copy" data-ar="الصق كود الـ JSON الذي أعطاك إياه وكيل الذكاء الاصطناعي في الحقل بالأسفل. سيقوم الحقل فوراً بالتحقق التلقائي من توافق المخرجات وتجهيز البرومبت النهائي لك." data-en="Paste the JSON output from your AI assistant into the field below. The field automatically validates whether the output is compatible and prepares your final Master Prompt.">
+          الصق كود الـ JSON الذي أعطاك إياه وكيل الذكاء الاصطناعي في الحقل بالأسفل. سيقوم الحقل فوراً بالتحقق التلقائي من توافق المخرجات وتجهيز البرومبت النهائي لك.
+        </p>
+
         <div class="json-input-card">
           <div class="card-section-header">
-            <h3 data-ar="📥 ١. الصق كود الـ JSON هنا" data-en="📥 1. Paste JSON Output Here">📥 ١. الصق كود الـ JSON هنا</h3>
-            <span class="brand-creator-tag" data-ar="يقبل اللصق المباشر حتى مع علامات ```json" data-en="Auto-cleans ```json fences">يقبل اللصق المباشر حتى مع علامات ```json</span>
+            <h3 data-ar="حقل لصق مخرجات الـ JSON" data-en="JSON Output Paste Field">حقل لصق مخرجات الـ JSON</h3>
+            <div class="toolbar-actions">
+              <button type="button" id="guidedPasteBtn" class="btn btn-secondary" style="padding: 0.45rem 0.9rem; font-size: 0.85rem;">
+                <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                  <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                </svg>
+                <span data-ar="لصق من الحافظة" data-en="Paste from Clipboard">لصق من الحافظة</span>
+              </button>
+              <button type="button" id="guidedLoadDemoBtn" class="btn btn-outline-accent" style="padding: 0.45rem 0.9rem; font-size: 0.85rem;">
+                <span data-ar="تعبئة بيانات تجريبية (Ali Nasser)" data-en="Load Demo Data (Ali Nasser)">تعبئة بيانات تجريبية (Ali Nasser)</span>
+              </button>
+            </div>
           </div>
 
           <textarea
-            id="jsonPasteArea"
+            id="guidedJsonPasteArea"
             class="json-textarea mono"
             spellcheck="false"
-            data-placeholder-ar="الصق هنا كود الـ JSON الذي حصلت عليه من وكيلك الذكي...&#10;{&#10;  &quot;PRIMARY_COLOR&quot;: &quot;#C3FF01&quot;,&#10;  &quot;FULL_NAME&quot;: &quot;...&quot;&#10;}"
-            data-placeholder-en="Paste the JSON object from your AI assistant here...&#10;{&#10;  &quot;PRIMARY_COLOR&quot;: &quot;#C3FF01&quot;,&#10;  &quot;FULL_NAME&quot;: &quot;...&quot;&#10;}"
-            placeholder="الصق هنا كود الـ JSON الذي حصلت عليه من وكيلك الذكي...
+            data-placeholder-ar="الصق هنا مخرجات الـ JSON التي حصلت عليها من الخطوة الأولى..."
+            data-placeholder-en="Paste the JSON output from Step 1 here..."
+            placeholder="الصق هنا مخرجات الـ JSON التي حصلت عليها من الخطوة الأولى..."
+          ></textarea>
+
+          <!-- Automatic Compatibility Verification Status -->
+          <div id="guidedValidationBanner" class="parse-status-banner status-idle" role="status" aria-live="polite">
+            <span data-ar="حالة التحقق التلقائي: بانتظار لصق المخرجات للتحقق من توافقها..." data-en="Auto-Validation Status: Waiting for pasted output to verify compatibility...">حالة التحقق التلقائي: بانتظار لصق المخرجات للتحقق من توافقها...</span>
+          </div>
+
+          <!-- Detailed Verification Keys Grid -->
+          <div id="guidedValidationReport" class="validation-report-box" style="display: none;">
+            <strong style="font-size: 0.85rem; color: var(--text-main);" data-ar="نتيجة فحص الحقول الأساسية:" data-en="Compatibility Check Summary:">نتيجة فحص الحقول الأساسية:</strong>
+            <div id="guidedValidationKeysGrid" class="validation-keys-grid mono"></div>
+          </div>
+        </div>
+
+        <div class="guided-actions-bar">
+          <button type="button" id="guidedBackTo1Btn" class="btn btn-secondary">
+            <span data-ar="السابق: الخطوة الأولى" data-en="Back: Step 1">السابق: الخطوة الأولى</span>
+          </button>
+          <button type="button" id="guidedToStep3Btn" class="btn btn-primary btn-lg">
+            <span data-ar="الانتقال إلى الخطوة الأخيرة" data-en="Next: Go to Final Step">الانتقال إلى الخطوة الأخيرة</span>
+            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- PAGE 3: FINAL STEP (COPY INJECTED PROMPT + AI AGENT BUTTON + REFERENCE IMAGE & USER_PHOTO + FINISH TO FULL VIEW) -->
+      <section class="guided-page" data-gpage="3" aria-labelledby="gpage3Heading">
+        <div class="guided-page-tag">
+          <span data-ar="الخطوة 3 من 3 — الخطوة الأخيرة" data-en="Step 3 of 3 — Final Step">الخطوة 3 من 3 — الخطوة الأخيرة</span>
+        </div>
+
+        <h2 id="gpage3Heading" tabindex="-1" data-ar="الخطوة الأخيرة: انسخ البرومبت الجاهز وأرفق الصورتين لوكيلك الذكي" data-en="Final Step: Copy Ready Prompt & Attach Both Images to Your AI Assistant">
+          الخطوة الأخيرة: انسخ البرومبت الجاهز وأرفق الصورتين لوكيلك الذكي
+        </h2>
+
+        <p class="guided-lead pretty-copy" data-ar="تم حقن بياناتك بنجاح داخل البرومبت الرئيسي! الآن انسخ البرومبت الجاهز بالأسفل، وحمّل الصورة المرجعية REFERENCE_IMAGE.JPG، وأرفقهما مع صورتك الشخصية باسم USER_PHOTO لوكيل الذكاء الاصطناعي الخاص بك." data-en="Your data is now injected into the Master Prompt! Copy the ready prompt below, download REFERENCE_IMAGE.JPG, and attach both along with your personal photo named USER_PHOTO to your AI assistant.">
+          تم حقن بياناتك بنجاح داخل البرومبت الرئيسي! الآن انسخ البرومبت الجاهز بالأسفل، وحمّل الصورة المرجعية REFERENCE_IMAGE.JPG، وأرفقهما مع صورتك الشخصية باسم USER_PHOTO لوكيل الذكاء الاصطناعي الخاص بك.
+        </p>
+
+        <!-- 3 Deliverables Summary Cards in Guided Final Page -->
+        <div class="step3-top-checklist">
+          <!-- Card 1: Copy Ready Prompt -->
+          <div class="deliverable-card highlight-card">
+            <div>
+              <span class="deliverable-badge" data-ar="1. البرومبت الجاهز" data-en="1. Ready Master Prompt">1. البرومبت الجاهز</span>
+              <h3 data-ar="نسخ البرومبت النهائي المحقون" data-en="Copy Injected Master Prompt">نسخ البرومبت النهائي المحقون</h3>
+              <p data-ar="تم دمج ألوانك وعناوينك ومهاراتك داخل القالب الرئيسي بنجاح." data-en="Your colors, headlines, and skills are now injected into the Master Prompt.">تم دمج ألوانك وعناوينك ومهاراتك داخل القالب الرئيسي بنجاح.</p>
+            </div>
+            <button type="button" id="guidedCopyFinalPromptBtn" class="btn btn-primary" style="width: 100%;">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span data-ar="نسخ البرومبت الجاهز" data-en="Copy Ready Prompt">نسخ البرومبت الجاهز</span>
+            </button>
+          </div>
+
+          <!-- Card 2: Download REFERENCE_IMAGE.JPG -->
+          <div class="deliverable-card">
+            <div>
+              <span class="deliverable-badge" data-ar="2. الصورة المرجعية" data-en="2. Reference Image">2. الصورة المرجعية</span>
+              <h3 data-ar="تحميل REFERENCE_IMAGE.JPG" data-en="Download REFERENCE_IMAGE.JPG">تحميل REFERENCE_IMAGE.JPG</h3>
+              <p data-ar="حمّل هذه الصورة المرجعية وأرفقها مع البرومبت ليبني الوكيل نفس التصميم." data-en="Download and attach this reference image with the prompt.">حمّل هذه الصورة المرجعية وأرفقها مع البرومبت ليبني الوكيل نفس التصميم.</p>
+              <div class="ref-thumb-row" style="margin-top: 0.65rem;">
+                <img src="REFERENCE_IMAGE.JPG" alt="REFERENCE_IMAGE.JPG" />
+                <span class="mono" style="font-size: 0.8rem; color: var(--accent-primary); font-weight: 700;">REFERENCE_IMAGE.JPG</span>
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline-accent download-ref-trigger" style="width: 100%;">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span data-ar="تحميل الصورة المرجعية" data-en="Download Reference Image">تحميل الصورة المرجعية</span>
+            </button>
+          </div>
+
+          <!-- Card 3: USER_PHOTO Instructions & Local Renamer -->
+          <div class="deliverable-card">
+            <div>
+              <span class="deliverable-badge" data-ar="3. صورتك الشخصية" data-en="3. Your Personal Photo">3. صورتك الشخصية</span>
+              <h3 data-ar="إرفاق صورتك باسم USER_PHOTO" data-en="Attach Photo Named USER_PHOTO">إرفاق صورتك باسم USER_PHOTO</h3>
+              <ul class="photo-specs-list" style="margin-top: 0.55rem;">
+                <li data-ar="يجب تسمية صورتك: USER_PHOTO" data-en="Must be named: USER_PHOTO">يجب تسمية صورتك: USER_PHOTO</li>
+                <li data-ar="إضاءة واضحة وملامح وجه طبيعية بدون فلاتر" data-en="Good lighting, natural face, no heavy filters">إضاءة واضحة وملامح وجه طبيعية بدون فلاتر</li>
+                <li data-ar="زاوية أمامية وجودة عالية" data-en="Front-facing portrait, high resolution">زاوية أمامية وجودة عالية</li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-secondary trigger-photo-renamer-btn" style="width: 100%; padding: 0.55rem;">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+              <span data-ar="أداة تسمية صورتك إلى USER_PHOTO تلقائياً" data-en="Auto-Rename Your Photo to USER_PHOTO">أداة تسمية صورتك إلى USER_PHOTO تلقائياً</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Ready Master Prompt Box -->
+        <div class="prompt-box-wrapper">
+          <div class="prompt-toolbar">
+            <span class="toolbar-file-badge">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="mono">MASTER PROMPT — AI PERSONAL BRANDING DESIGN SYSTEM (Injected)</span>
+            </span>
+            <button type="button" class="btn btn-primary" onclick="document.getElementById('guidedCopyFinalPromptBtn').click()">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span data-ar="نسخ البرومبت الجاهز" data-en="Copy Ready Prompt">نسخ البرومبت الجاهز</span>
+            </button>
+          </div>
+          <pre id="guidedFinalMasterPromptPre" class="prompt-pre mono" aria-label="Ready Injected Master Prompt"></pre>
+        </div>
+
+        <!-- AI Agent Buttons -->
+        <div class="guided-ai-box">
+          <div>
+            <strong style="display: block; font-size: 0.95rem;" data-ar="اذهب لوكيل الذكاء الاصطناعي لتوليد الحقيبة الكاملة:" data-en="Open Your AI Assistant to Generate the Kit:">اذهب لوكيل الذكاء الاصطناعي لتوليد الحقيبة الكاملة:</strong>
+            <span style="font-size: 0.84rem; color: var(--text-muted);" data-ar="أرسل له: (1) البرومبت الجاهز + (2) الصورة المرجعية REFERENCE_IMAGE.JPG + (3) صورتك USER_PHOTO" data-en="Send together: (1) Ready Prompt + (2) REFERENCE_IMAGE.JPG + (3) Your USER_PHOTO">أرسل له: (1) البرومبت الجاهز + (2) الصورة المرجعية REFERENCE_IMAGE.JPG + (3) صورتك USER_PHOTO</span>
+          </div>
+          <div class="guided-ai-links">
+            <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent">
+              <span>ChatGPT</span>
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+            <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent">
+              <span>Google Gemini</span>
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+            <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent">
+              <span>Claude AI</span>
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="guided-actions-bar">
+          <button type="button" id="guidedBackTo2Btn" class="btn btn-secondary">
+            <span data-ar="السابق: الخطوة الثانية" data-en="Back: Step 2">السابق: الخطوة الثانية</span>
+          </button>
+          <button type="button" id="finishGuidedFlowBtn" class="btn btn-primary btn-lg">
+            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span data-ar="إنهاء العملية والانتقال إلى الواجهة الكاملة" data-en="Finish Process & Open Full Workspace">إنهاء العملية والانتقال إلى الواجهة الكاملة</span>
+          </button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- =========================================================================
+         2. FULL WORKSPACE INTERFACE (PRESERVED & REVEALED AFTER FINISHING GUIDED FLOW)
+         ========================================================================= -->
+    <div id="fullWorkspaceView" class="full-workspace-wrapper hidden-view">
+
+      <!-- Mode Switcher Bar to return to Guided Mode anytime -->
+      <div class="workspace-mode-banner">
+        <span style="font-size: 0.9rem; font-weight: 700;" data-ar="أنت الآن في الواجهة الكاملة المتقدمة — يمكنك التعديل المباشر على كافة الحقول والألوان." data-en="You are viewing the Full Advanced Workspace — edit any field or color live.">أنت الآن في الواجهة الكاملة المتقدمة — يمكنك التعديل المباشر على كافة الحقول والألوان.</span>
+        <button type="button" id="returnToGuidedBtn" class="btn btn-outline-accent" style="padding: 0.45rem 0.95rem; font-size: 0.84rem;">
+          <span data-ar="العودة للتدفق الإرشادي خطوة بخطوة" data-en="Return to Guided Step-by-Step Flow">العودة للتدفق الإرشادي خطوة بخطوة</span>
+        </button>
+      </div>
+
+      <!-- Hero Section -->
+      <section class="hero" aria-labelledby="heroHeading">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <span data-ar="مجاناً 100% • بدون تسجيل • مصمم لغير التقنيين" data-en="100% Free • Zero Sign-up • Built for Everyone">مجاناً 100% • بدون تسجيل • مصمم لغير التقنيين</span>
+          </div>
+          <h1 id="heroHeading" tabindex="-1" class="balance-heading">
+            <span data-ar="اصنع حقيبة هويتك البصرية الاحترافية" data-en="Generate Your Complete Professional">اصنع حقيبة هويتك البصرية الاحترافية</span>
+            <span class="accent-text" data-ar="في 3 خطوات بسيطة فقط!" data-en="Personal Brand Kit in 3 Simple Steps!">في 3 خطوات بسيطة فقط!</span>
+          </h1>
+          <p class="hero-subtitle pretty-copy" data-ar="لا تحتاج لأي خبرة في التصميم أو البرمجة! يساعدك هذا النظام على استخراج بياناتك من وكيل الذكاء الاصطناعي الخاص بك (ChatGPT / Gemini / Claude)، ثم يحقنها تلقائياً في قالب تصميم عالمي ليولّد لك 11 تصميماً متناسقاً لحسابك في لينكدإن وموقعك الشخصي." data-en="No design or coding skills needed! This interactive system helps you extract your verified profile data from your AI assistant, automatically injects it into our agency-grade design system prompt, and prepares everything you need to generate 11 cohesive personal brand assets.">
+            لا تحتاج لأي خبرة في التصميم أو البرمجة! يساعدك هذا النظام على استخراج بياناتك من وكيل الذكاء الاصطناعي الخاص بك (ChatGPT / Gemini / Claude)، ثم يحقنها تلقائياً في قالب تصميم عالمي ليولّد لك 11 تصميماً متناسقاً لحسابك في لينكدإن وموقعك الشخصي.
+          </p>
+          <div class="hero-pills">
+            <span class="feature-chip" data-ar="لوحة ألوان الهوية (3 ألوان)" data-en="3-Color Brand Palette">لوحة ألوان الهوية (3 ألوان)</span>
+            <span class="feature-chip" data-ar="بانر لينكدإن (فاتح + داكن)" data-en="LinkedIn Banners (Light & Dark)">بانر لينكدإن (فاتح + داكن)</span>
+            <span class="feature-chip" data-ar="3 صور شخصية احترافية" data-en="3 Studio Portraits">3 صور شخصية احترافية</span>
+            <span class="feature-chip" data-ar="بنرات البورتفوليو والكاروسيل" data-en="Portfolio & Carousel Covers">بنرات البورتفوليو والكاروسيل</span>
+          </div>
+        </div>
+
+        <div class="hero-preview-card">
+          <div class="preview-img-wrap open-ref-modal-trigger" id="openRefPreviewBtn" role="button" tabindex="0" aria-label="View Reference Design Board">
+            <img src="REFERENCE_IMAGE.JPG" alt="Reference Personal Brand Kit" />
+            <span class="preview-overlay-tag">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <span data-ar="اضغط لمعاينة الحقيبة الكاملة" data-en="Click to Inspect Full Kit">اضغط لمعاينة الحقيبة الكاملة</span>
+            </span>
+          </div>
+          <div class="preview-caption">
+            <span data-ar="نموذج التصميم المرجعي (11 قطعة فنية متكاملة)" data-en="Reference Design System (11 Cohesive Assets)">نموذج التصميم المرجعي (11 قطعة فنية متكاملة)</span>
+            <button type="button" class="toast-close-btn download-ref-trigger">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span data-ar="تحميل المرجع" data-en="Download Ref">تحميل المرجع</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3-Step Interactive Stepper -->
+      <nav class="stepper-nav" aria-label="خطوات بناء الهوية الشخصية">
+        <button type="button" class="step-tab active" data-step="1">
+          <div class="step-number">1</div>
+          <div class="step-meta">
+            <span class="step-label" data-ar="الخطوة الأولى" data-en="Step 01">الخطوة الأولى</span>
+            <span class="step-title" data-ar="انسخ برومبت استخراج الهوية" data-en="Copy Brand Details Prompt">انسخ برومبت استخراج الهوية</span>
+          </div>
+        </button>
+
+        <button type="button" class="step-tab" data-step="2">
+          <div class="step-number">2</div>
+          <div class="step-meta">
+            <span class="step-label" data-ar="الخطوة الثانية" data-en="Step 02">الخطوة الثانية</span>
+            <span class="step-title" data-ar="الصق النتيجة وراجع بياناتك" data-en="Paste JSON & Customize">الصق النتيجة وراجع بياناتك</span>
+          </div>
+        </button>
+
+        <button type="button" class="step-tab" data-step="3">
+          <div class="step-number">3</div>
+          <div class="step-meta">
+            <span class="step-label" data-ar="الخطوة الثالثة والأخيرة" data-en="Step 03 (Final)">الخطوة الثالثة والأخيرة</span>
+            <span class="step-title" data-ar="انسخ البرومبت المحقون + المرفقات" data-en="Get Final Prompt & Assets">انسخ البرومبت المحقون + المرفقات</span>
+          </div>
+        </button>
+      </nav>
+
+      <!-- ==================== WORKSPACE STEP 1 PANEL ==================== -->
+      <section class="step-panel active" data-panel="1" aria-labelledby="step1Title">
+        <div class="panel-header">
+          <div class="panel-title-group">
+            <h2 id="step1Title" data-ar="1. استخرج تفاصيل هويتك بصيغة JSON من وكيلك الذكي" data-en="1. Extract Your Personal Brand JSON from Your AI Assistant">1. استخرج تفاصيل هويتك بصيغة JSON من وكيلك الذكي</h2>
+            <p data-ar="انسخ هذا البرومبت وأرسله لوكيل الذكاء الاصطناعي الذي يعرفك (أو أرفق معه سيرتك الذاتية CV). سيقوم الوكيل بإعطائك كود JSON جاهز يحتوي على ألوانك وعناوينك ومهاراتك." data-en="Copy this prompt and send it to your favorite AI assistant (or attach your CV/Resume with it). Your AI will reply with a clean JSON block containing your brand colors, headlines, bio, and skills.">
+              انسخ هذا البرومبت وأرسله لوكيل الذكاء الاصطناعي الذي يعرفك (أو أرفق معه سيرتك الذاتية CV). سيقوم الوكيل بإعطائك كود JSON جاهز يحتوي على ألوانك وعناوينك ومهاراتك.
+            </p>
+          </div>
+          <button type="button" id="copyStep1Btn" class="btn btn-primary btn-lg">
+            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span data-ar="نسخ برومبت الخطوة الأولى" data-en="Copy Step 1 Prompt">نسخ برومبت الخطوة الأولى</span>
+          </button>
+        </div>
+
+        <div class="how-it-works-grid">
+          <div class="mini-guide-card">
+            <div class="mini-guide-icon">1</div>
+            <div>
+              <h3 data-ar="انسخ البرومبت بالأسفل" data-en="Copy the Prompt Below">انسخ البرومبت بالأسفل</h3>
+              <p data-ar="اضغط زر النسخ ليتم نسخ برومبت (Personal Brand Details JSON) بالكامل بضغطة واحدة." data-en="Click the copy button to grab the entire Personal Brand Details JSON prompt in one click.">اضغط زر النسخ ليتم نسخ برومبت (Personal Brand Details JSON) بالكامل بضغطة واحدة.</p>
+            </div>
+          </div>
+
+          <div class="mini-guide-card">
+            <div class="mini-guide-icon">2</div>
+            <div>
+              <h3 data-ar="أرسله لوكيلك الذكي" data-en="Send to Your AI Agent">أرسله لوكيلك الذكي</h3>
+              <p data-ar="افتح ChatGPT أو Claude أو Gemini والصق البرومبت (وإن لم يكن يعرفك مسبقاً أرفق له سيرتك الذاتية أو نبذة عنك)." data-en="Open ChatGPT, Claude, or Gemini and paste the prompt (attach your resume or bio if starting a fresh chat).">افتح ChatGPT أو Claude أو Gemini والصق البرومبت (وإن لم يكن يعرفك مسبقاً أرفق له سيرتك الذاتية أو نبذة عنك).</p>
+            </div>
+          </div>
+
+          <div class="mini-guide-card">
+            <div class="mini-guide-icon">3</div>
+            <div>
+              <h3 data-ar="انسخ النتيجة وانتقل للخطوة 2" data-en="Copy the Output & Go to Step 2">انسخ النتيجة وانتقل للخطوة 2</h3>
+              <p data-ar="سيعطيك وكيلك نتيجة بين قوسين { ... } بصيغة JSON، انسخها ثم انتقل للخطوة الثانية هنا." data-en="Your AI will return a { ... } JSON object. Copy that output and move to Step 2 right here.">سيعطيك وكيلك نتيجة بين قوسين { ... } بصيغة JSON، انسخها ثم انتقل للخطوة الثانية هنا.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick AI Launchers -->
+        <div class="ai-launchers">
+          <span class="ai-launchers-label" data-ar="روابط سريعة لفتح وكيلك الذكي بعد النسخ:" data-en="Quick links to open your AI assistant after copying:">روابط سريعة لفتح وكيلك الذكي بعد النسخ:</span>
+          <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="ai-chip">ChatGPT</a>
+          <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" class="ai-chip">Google Gemini</a>
+          <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer" class="ai-chip">Claude AI</a>
+        </div>
+
+        <!-- Prompt Viewer Box -->
+        <div class="prompt-box-wrapper">
+          <div class="prompt-toolbar">
+            <span class="toolbar-file-badge">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span class="mono">Personal_Brand_Details_JSON_Prompt.md</span>
+            </span>
+            <div class="toolbar-actions">
+              <button type="button" id="copyStep1AndNextBtn" class="btn btn-outline-accent">
+                <span data-ar="نسخ البرومبت والانتقال للخطوة 2" data-en="Copy Prompt & Continue to Step 2">نسخ البرومبت والانتقال للخطوة 2</span>
+              </button>
+            </div>
+          </div>
+          <pre id="step1PromptPre" class="prompt-pre mono" aria-label="Step 1 JSON extraction prompt"></pre>
+        </div>
+
+        <div class="panel-footer-nav">
+          <span class="brand-creator-tag" data-ar="ملاحظة: يمكنك أيضاً تجربة الموقع فوراً في الخطوة 2 باستخدام زر (بيانات تجريبية)." data-en="Tip: You can also test Step 2 immediately using the 'Load Demo Data' button.">ملاحظة: يمكنك أيضاً تجربة الموقع فوراً في الخطوة 2 باستخدام زر (بيانات تجريبية).</span>
+          <button type="button" class="btn btn-primary btn-lg" onclick="document.querySelector('[data-step=\'2\']').click()">
+            <span data-ar="حصلت على النتيجة — انتقل للخطوة الثانية" data-en="I Got the Output — Go to Step 2">حصلت على النتيجة — انتقل للخطوة الثانية</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ==================== WORKSPACE STEP 2 PANEL ==================== -->
+      <section class="step-panel" data-panel="2" aria-labelledby="step2Title">
+        <div class="panel-header">
+          <div class="panel-title-group">
+            <h2 id="step2Title" data-ar="2. الصق مخرجات وكيلك الذكي (JSON) وراجع بياناتك" data-en="2. Paste Your AI's JSON Output & Review Your Brand Data">2. الصق مخرجات وكيلك الذكي (JSON) وراجع بياناتك</h2>
+            <p data-ar="الصق النتيجة التي أعطاك إياها وكيل الذكاء الاصطناعي في المربع الأول، وسيقوم الموقع تلقائياً بقراءتها والتحقق منها وعرضها لك بشكل مرئي لتتأكد منها أو تعدّل أي لون أو نص بسهولة تامة." data-en="Paste the output from your AI assistant into the box. The tool automatically validates and extracts your colors and text so you can visually verify or tweak anything before generating the Master Prompt.">
+              الصق النتيجة التي أعطاك إياها وكيل الذكاء الاصطناعي في المربع الأول، وسيقوم الموقع تلقائياً بقراءتها والتحقق منها وعرضها لك بشكل مرئي لتتأكد منها أو تعدّل أي لون أو نص بسهولة تامة.
+            </p>
+          </div>
+          <div class="toolbar-actions">
+            <button type="button" id="pasteClipboardBtn" class="btn btn-secondary">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+              <span data-ar="لصق تلقائي من الحافظة" data-en="Paste from Clipboard">لصق تلقائي من الحافظة</span>
+            </button>
+            <button type="button" id="loadDemoBtn" class="btn btn-outline-accent">
+              <span data-ar="تعبئة بيانات تجريبية (Ali Nasser)" data-en="Load Demo Data (Ali Nasser)">تعبئة بيانات تجريبية (Ali Nasser)</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="step2-grid">
+          <!-- Column 1: Raw JSON Paste Area -->
+          <div class="json-input-card">
+            <div class="card-section-header">
+              <h3 data-ar="1. الصق كود الـ JSON هنا" data-en="1. Paste JSON Output Here">1. الصق كود الـ JSON هنا</h3>
+              <span class="brand-creator-tag" data-ar="يتحقق تلقائياً من التوافق" data-en="Auto-validates compatibility">يتحقق تلقائياً من التوافق</span>
+            </div>
+
+            <textarea
+              id="jsonPasteArea"
+              class="json-textarea mono"
+              spellcheck="false"
+              data-placeholder-ar="الصق هنا كود الـ JSON الذي حصلت عليه من وكيلك الذكي...&#10;{&#10;  &quot;PRIMARY_COLOR&quot;: &quot;#C3FF01&quot;,&#10;  &quot;FULL_NAME&quot;: &quot;...&quot;&#10;}"
+              data-placeholder-en="Paste the JSON object from your AI assistant here...&#10;{&#10;  &quot;PRIMARY_COLOR&quot;: &quot;#C3FF01&quot;,&#10;  &quot;FULL_NAME&quot;: &quot;...&quot;&#10;}"
+              placeholder="الصق هنا كود الـ JSON الذي حصلت عليه من وكيلك الذكي...
 {
   &quot;PRIMARY_COLOR&quot;: &quot;#C3FF01&quot;,
   &quot;FULL_NAME&quot;: &quot;...&quot;
 }"
-          ></textarea>
+            ></textarea>
 
-          <div id="jsonParseStatus" class="parse-status-banner status-idle" role="status" aria-live="polite">
-            <span data-ar="بانتظار لصق مخرجات الـ JSON من وكيل الذكاء الاصطناعي... (أو اضغط زر بيانات تجريبية بالأعلى)" data-en="Waiting for you to paste the JSON output from your AI assistant... (or click Load Demo Data above)">بانتظار لصق مخرجات الـ JSON من وكيل الذكاء الاصطناعي... (أو اضغط زر بيانات تجريبية بالأعلى)</span>
-          </div>
-        </div>
-
-        <!-- Column 2: Interactive Visual Editor (No-Code friendly!) -->
-        <div class="visual-editor-card">
-          <div class="card-section-header">
-            <h3 data-ar="🎨 ٢. معاينة وتعديل سريع (اختياري لغير التقنيين)" data-en="🎨 2. Visual Preview & Quick Editor (No-Code)">🎨 ٢. معاينة وتعديل سريع (اختياري لغير التقنيين)</h3>
-            <span class="brand-creator-tag" data-ar="أي تعديل هنا يُحقن مباشرة في البرومبت" data-en="Any edit here syncs automatically">أي تعديل هنا يُحقن مباشرة في البرومبت</span>
+            <div id="jsonParseStatus" class="parse-status-banner status-idle" role="status" aria-live="polite">
+              <span data-ar="بانتظار لصق مخرجات الـ JSON من وكيل الذكاء الاصطناعي... (أو اضغط زر بيانات تجريبية بالأعلى)" data-en="Waiting for you to paste the JSON output from your AI assistant... (or click Load Demo Data above)">بانتظار لصق مخرجات الـ JSON من وكيل الذكاء الاصطناعي... (أو اضغط زر بيانات تجريبية بالأعلى)</span>
+            </div>
           </div>
 
-          <!-- 3 Color Pickers -->
-          <div class="palette-editor-grid">
-            <div class="color-swatch-box">
-              <span class="color-role-label" data-ar="اللون الأساسي (Primary)" data-en="Primary Accent">اللون الأساسي (Primary)</span>
-              <div class="color-picker-row">
-                <input type="color" id="picker_PRIMARY_COLOR" class="color-picker-input" value="#C3FF01" aria-label="Primary Brand Color" />
-                <input type="text" id="hex_PRIMARY_COLOR" class="color-hex-input mono" value="#C3FF01" maxlength="7" aria-label="Primary HEX Code" />
+          <!-- Column 2: Interactive Visual Editor -->
+          <div class="visual-editor-card">
+            <div class="card-section-header">
+              <h3 data-ar="2. معاينة وتعديل سريع (اختياري لغير التقنيين)" data-en="2. Visual Preview & Quick Editor (No-Code)">2. معاينة وتعديل سريع (اختياري لغير التقنيين)</h3>
+              <span class="brand-creator-tag" data-ar="أي تعديل هنا يُحقن مباشرة في البرومبت" data-en="Any edit here syncs automatically">أي تعديل هنا يُحقن مباشرة في البرومبت</span>
+            </div>
+
+            <!-- 3 Color Pickers -->
+            <div class="palette-editor-grid">
+              <div class="color-swatch-box">
+                <span class="color-role-label" data-ar="اللون الأساسي (Primary)" data-en="Primary Accent">اللون الأساسي (Primary)</span>
+                <div class="color-picker-row">
+                  <input type="color" id="picker_PRIMARY_COLOR" class="color-picker-input" value="#C3FF01" aria-label="Primary Brand Color" />
+                  <input type="text" id="hex_PRIMARY_COLOR" class="color-hex-input mono" value="#C3FF01" maxlength="7" aria-label="Primary HEX Code" />
+                </div>
+              </div>
+
+              <div class="color-swatch-box">
+                <span class="color-role-label" data-ar="اللون الثانوي الفاتح (Secondary)" data-en="Secondary Light">اللون الثانوي الفاتح (Secondary)</span>
+                <div class="color-picker-row">
+                  <input type="color" id="picker_SECONDARY_COLOR" class="color-picker-input" value="#F4F4F4" aria-label="Secondary Brand Color" />
+                  <input type="text" id="hex_SECONDARY_COLOR" class="color-hex-input mono" value="#F4F4F4" maxlength="7" aria-label="Secondary HEX Code" />
+                </div>
+              </div>
+
+              <div class="color-swatch-box">
+                <span class="color-role-label" data-ar="اللون الداكن (Tertiary)" data-en="Tertiary Dark">اللون الداكن (Tertiary)</span>
+                <div class="color-picker-row">
+                  <input type="color" id="picker_TERTIARY_COLOR" class="color-picker-input" value="#151515" aria-label="Tertiary Brand Color" />
+                  <input type="text" id="hex_TERTIARY_COLOR" class="color-hex-input mono" value="#151515" maxlength="7" aria-label="Tertiary HEX Code" />
+                </div>
               </div>
             </div>
 
-            <div class="color-swatch-box">
-              <span class="color-role-label" data-ar="اللون الثانوي الفاتح (Secondary)" data-en="Secondary Light">اللون الثانوي الفاتح (Secondary)</span>
-              <div class="color-picker-row">
-                <input type="color" id="picker_SECONDARY_COLOR" class="color-picker-input" value="#F4F4F4" aria-label="Secondary Brand Color" />
-                <input type="text" id="hex_SECONDARY_COLOR" class="color-hex-input mono" value="#F4F4F4" maxlength="7" aria-label="Secondary HEX Code" />
+            <!-- Visual Text Fields -->
+            <div class="fields-grid">
+              <div class="field-group">
+                <label for="field_FULL_NAME">
+                  <span data-ar="الاسم الكامل" data-en="Full Name">الاسم الكامل</span>
+                  <span class="mono">FULL_NAME</span>
+                </label>
+                <input type="text" id="field_FULL_NAME" class="field-input" placeholder="e.g. Ali Nasser" />
               </div>
-            </div>
 
-            <div class="color-swatch-box">
-              <span class="color-role-label" data-ar="اللون الداكن (Tertiary)" data-en="Tertiary Dark">اللون الداكن (Tertiary)</span>
-              <div class="color-picker-row">
-                <input type="color" id="picker_TERTIARY_COLOR" class="color-picker-input" value="#151515" aria-label="Tertiary Brand Color" />
-                <input type="text" id="hex_TERTIARY_COLOR" class="color-hex-input mono" value="#151515" maxlength="7" aria-label="Tertiary HEX Code" />
+              <div class="field-group">
+                <label for="field_PROFESSIONAL_TITLE">
+                  <span data-ar="المسمى الوظيفي" data-en="Professional Title">المسمى الوظيفي</span>
+                  <span class="mono">TITLE</span>
+                </label>
+                <input type="text" id="field_PROFESSIONAL_TITLE" class="field-input" placeholder="e.g. Software Engineer" />
               </div>
-            </div>
-          </div>
 
-          <!-- Visual Text Fields -->
-          <div class="fields-grid">
-            <div class="field-group">
-              <label for="field_FULL_NAME">
-                <span data-ar="الاسم الكامل" data-en="Full Name">الاسم الكامل</span>
-                <span class="mono">FULL_NAME</span>
-              </label>
-              <input type="text" id="field_FULL_NAME" class="field-input" placeholder="e.g. Ali Nasser" />
-            </div>
+              <div class="field-group full-width">
+                <label for="field_SPECIALIZATION">
+                  <span data-ar="التخصص الدقيق" data-en="Specialization">التخصص الدقيق</span>
+                  <span class="mono">SPECIALIZATION</span>
+                </label>
+                <input type="text" id="field_SPECIALIZATION" class="field-input" placeholder="e.g. AI Agents & Full-Stack Web Systems" />
+              </div>
 
-            <div class="field-group">
-              <label for="field_PROFESSIONAL_TITLE">
-                <span data-ar="المسمى الوظيفي" data-en="Professional Title">المسمى الوظيفي</span>
-                <span class="mono">TITLE</span>
-              </label>
-              <input type="text" id="field_PROFESSIONAL_TITLE" class="field-input" placeholder="e.g. Software Engineer" />
-            </div>
+              <div class="field-group full-width">
+                <label for="field_MAIN_HEADLINE">
+                  <span data-ar="العنوان الرئيسي للبانر" data-en="Main Headline">العنوان الرئيسي للبانر</span>
+                  <span class="mono">MAIN_HEADLINE</span>
+                </label>
+                <input type="text" id="field_MAIN_HEADLINE" class="field-input" placeholder="e.g. Building Personal Brands That Earn Trust" />
+              </div>
 
-            <div class="field-group full-width">
-              <label for="field_SPECIALIZATION">
-                <span data-ar="التخصص الدقيق" data-en="Specialization">التخصص الدقيق</span>
-                <span class="mono">SPECIALIZATION</span>
-              </label>
-              <input type="text" id="field_SPECIALIZATION" class="field-input" placeholder="e.g. AI Agents & Full-Stack Web Systems" />
-            </div>
+              <div class="field-group full-width">
+                <label for="field_SECONDARY_HEADLINE">
+                  <span data-ar="العنوان الفرعي" data-en="Secondary Headline">العنوان الفرعي</span>
+                  <span class="mono">SECONDARY_HEADLINE</span>
+                </label>
+                <input type="text" id="field_SECONDARY_HEADLINE" class="field-input" />
+              </div>
 
-            <div class="field-group full-width">
-              <label for="field_MAIN_HEADLINE">
-                <span data-ar="العنوان الرئيسي للبانر" data-en="Main Headline">العنوان الرئيسي للبانر</span>
-                <span class="mono">MAIN_HEADLINE</span>
-              </label>
-              <input type="text" id="field_MAIN_HEADLINE" class="field-input" placeholder="e.g. Building Personal Brands That Earn Trust" />
-            </div>
+              <div class="field-group full-width">
+                <label for="field_SHORT_BIO">
+                  <span data-ar="النبذة المختصرة" data-en="Short Bio">النبذة المختصرة</span>
+                  <span class="mono">SHORT_BIO</span>
+                </label>
+                <input type="text" id="field_SHORT_BIO" class="field-input" />
+              </div>
 
-            <div class="field-group full-width">
-              <label for="field_SECONDARY_HEADLINE">
-                <span data-ar="العنوان الفرعي" data-en="Secondary Headline">العنوان الفرعي</span>
-                <span class="mono">SECONDARY_HEADLINE</span>
-              </label>
-              <input type="text" id="field_SECONDARY_HEADLINE" class="field-input" />
-            </div>
+              <div class="field-group full-width">
+                <label for="field_SKILLS">
+                  <span data-ar="أهم 3 مهارات (مفصولة بفاصلة ,)" data-en="Top 3 Skills (comma-separated)">أهم 3 مهارات (مفصولة بفاصلة ,)</span>
+                  <span class="mono">KEYWORDS / SKILLS</span>
+                </label>
+                <input type="text" id="field_SKILLS" class="field-input" placeholder="Skill 1, Skill 2, Skill 3" />
+              </div>
 
-            <div class="field-group full-width">
-              <label for="field_SHORT_BIO">
-                <span data-ar="النبذة المختصرة" data-en="Short Bio">النبذة المختصرة</span>
-                <span class="mono">SHORT_BIO</span>
-              </label>
-              <input type="text" id="field_SHORT_BIO" class="field-input" />
-            </div>
+              <div class="field-group">
+                <label for="field_PRIMARY_CALL_TO_ACTION">
+                  <span data-ar="زر الدعوة الأساسي" data-en="Primary CTA">زر الدعوة الأساسي</span>
+                  <span class="mono">PRIMARY_CTA</span>
+                </label>
+                <input type="text" id="field_PRIMARY_CALL_TO_ACTION" class="field-input" placeholder="e.g. Explore My Portfolio" />
+              </div>
 
-            <div class="field-group full-width">
-              <label for="field_SKILLS">
-                <span data-ar="أهم ٣ مهارات (مفصولة بفاصلة ,)" data-en="Top 3 Skills (comma-separated)">أهم ٣ مهارات (مفصولة بفاصلة ,)</span>
-                <span class="mono">KEYWORDS / SKILLS</span>
-              </label>
-              <input type="text" id="field_SKILLS" class="field-input" placeholder="Skill 1, Skill 2, Skill 3" />
-            </div>
+              <div class="field-group">
+                <label for="field_PORTFOLIO_URL">
+                  <span data-ar="رابط الموقع / البورتفوليو" data-en="Portfolio URL">رابط الموقع / البورتفوليو</span>
+                  <span class="mono">PORTFOLIO_URL</span>
+                </label>
+                <input type="text" id="field_PORTFOLIO_URL" class="field-input" placeholder="e.g. www.ali-nasser.dev" />
+              </div>
 
-            <div class="field-group">
-              <label for="field_PRIMARY_CALL_TO_ACTION">
-                <span data-ar="زر الدعوة الأساسي" data-en="Primary CTA">زر الدعوة الأساسي</span>
-                <span class="mono">PRIMARY_CTA</span>
-              </label>
-              <input type="text" id="field_PRIMARY_CALL_TO_ACTION" class="field-input" placeholder="e.g. Explore My Portfolio" />
-            </div>
+              <div class="field-group">
+                <label for="field_SECONDARY_CALL_TO_ACTION">
+                  <span data-ar="زر التواصل الثانوي" data-en="Secondary CTA">زر التواصل الثانوي</span>
+                  <span class="mono">SECONDARY_CTA</span>
+                </label>
+                <input type="text" id="field_SECONDARY_CALL_TO_ACTION" class="field-input" placeholder="e.g. Let's Schedule a Chat" />
+              </div>
 
-            <div class="field-group">
-              <label for="field_PORTFOLIO_URL">
-                <span data-ar="رابط الموقع / البورتفوليو" data-en="Portfolio URL">رابط الموقع / البورتفوليو</span>
-                <span class="mono">PORTFOLIO_URL</span>
-              </label>
-              <input type="text" id="field_PORTFOLIO_URL" class="field-input" placeholder="e.g. www.ali-nasser.dev" />
-            </div>
+              <div class="field-group">
+                <label for="field_CONTACT_TEXT">
+                  <span data-ar="نص التواصل / الحجز" data-en="Contact Text">نص التواصل / الحجز</span>
+                  <span class="mono">CONTACT_TEXT</span>
+                </label>
+                <input type="text" id="field_CONTACT_TEXT" class="field-input" placeholder="e.g. linkedin.com/in/ali-nasser-dev" />
+              </div>
 
-            <div class="field-group">
-              <label for="field_SECONDARY_CALL_TO_ACTION">
-                <span data-ar="زر التواصل الثانوي" data-en="Secondary CTA">زر التواصل الثانوي</span>
-                <span class="mono">SECONDARY_CTA</span>
-              </label>
-              <input type="text" id="field_SECONDARY_CALL_TO_ACTION" class="field-input" placeholder="e.g. Let's Schedule a Chat" />
-            </div>
+              <div class="field-group">
+                <label for="field_SOCIAL_HANDLE">
+                  <span data-ar="اسم المستخدم (@)" data-en="Social Handle">اسم المستخدم (@)</span>
+                  <span class="mono">SOCIAL_HANDLE</span>
+                </label>
+                <input type="text" id="field_SOCIAL_HANDLE" class="field-input" placeholder="e.g. @ali-nasser-dev" />
+              </div>
 
-            <div class="field-group">
-              <label for="field_CONTACT_TEXT">
-                <span data-ar="نص التواصل / الحجز" data-en="Contact Text">نص التواصل / الحجز</span>
-                <span class="mono">CONTACT_TEXT</span>
-              </label>
-              <input type="text" id="field_CONTACT_TEXT" class="field-input" placeholder="e.g. linkedin.com/in/ali-nasser-dev" />
-            </div>
-
-            <div class="field-group">
-              <label for="field_SOCIAL_HANDLE">
-                <span data-ar="اسم المستخدم (@)" data-en="Social Handle">اسم المستخدم (@)</span>
-                <span class="mono">SOCIAL_HANDLE</span>
-              </label>
-              <input type="text" id="field_SOCIAL_HANDLE" class="field-input" placeholder="e.g. @ali-nasser-dev" />
-            </div>
-
-            <div class="field-group">
-              <label for="field_OPTIONAL_ADDITIONAL_TEXT">
-                <span data-ar="نص إضافي اختياري" data-en="Optional Text">نص إضافي اختياري</span>
-                <span class="mono">OPTIONAL_TEXT</span>
-              </label>
-              <input type="text" id="field_OPTIONAL_ADDITIONAL_TEXT" class="field-input" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel-footer-nav">
-        <button type="button" id="backToStep1Btn" class="btn btn-secondary">
-          <span data-ar="→ العودة للخطوة الأولى" data-en="← Back to Step 1">→ العودة للخطوة الأولى</span>
-        </button>
-        <button type="button" id="goToStep3Btn" class="btn btn-primary btn-lg">
-          <span>🚀</span>
-          <span data-ar="حقن البيانات وتوليد البرومبت النهائي ← الخطوة ٣" data-en="Inject Data & Generate Final Master Prompt → Step 3">حقن البيانات وتوليد البرومبت النهائي ← الخطوة ٣</span>
-        </button>
-      </div>
-    </section>
-
-    <!-- ==================== STEP 3 PANEL ==================== -->
-    <section class="step-panel" data-panel="3" aria-labelledby="step3Title">
-      <div class="panel-header">
-        <div class="panel-title-group">
-          <h2 id="step3Title" data-ar="٣. حقيبتك جاهزة للتوليد! أرسل هذه الـ ٣ عناصر لوكيلك الذكي" data-en="3. Ready to Generate! Send These 3 Items Together to Your AI Agent">٣. حقيبتك جاهزة للتوليد! أرسل هذه الـ ٣ عناصر لوكيلك الذكي</h2>
-          <p data-ar="تم حقن بياناتك بنجاح داخل البرومبت الرئيسي (MASTER PROMPT). كل ما عليك الآن هو إرسال (البرومبت النهائي + الصورة المرجعية REFERENCE_IMAGE.JPG + صورتك الشخصية باسم USER_PHOTO) في رسالة واحدة لوكيلك الذكي، وسيتكفل هو بتصميم الحقيبة الكاملة لك!" data-en="Your details are now injected into the MASTER PROMPT. Simply attach REFERENCE_IMAGE.JPG and your personal photo named USER_PHOTO along with this prompt in one message to your AI agent, and it will handle the rest!">
-            تم حقن بياناتك بنجاح داخل البرومبت الرئيسي (MASTER PROMPT). كل ما عليك الآن هو إرسال (البرومبت النهائي + الصورة المرجعية REFERENCE_IMAGE.JPG + صورتك الشخصية باسم USER_PHOTO) في رسالة واحدة لوكيلك الذكي، وسيتكفل هو بتصميم الحقيبة الكاملة لك!
-          </p>
-        </div>
-        <span id="injectedUserNameBadge" class="hero-badge">بياناتك المخصصة جاهزة</span>
-      </div>
-
-      <!-- The 3 Required Items Cards -->
-      <div class="step3-top-checklist">
-
-        <!-- Item 1: The Injected Master Prompt -->
-        <div class="deliverable-card highlight-card">
-          <div>
-            <span class="deliverable-badge" data-ar="العنصر الأول (١/٣)" data-en="Item 1 of 3">العنصر الأول (١/٣)</span>
-            <h3 data-ar="📋 البرومبت النهائي المحقون ببياناتك" data-en="📋 Injected Master Design Prompt">📋 البرومبت النهائي المحقون ببياناتك</h3>
-            <p data-ar="يحتوي هذا البرومبت على كافة ألوانك ومعلوماتك وتعليمات التصميم الدقيقة لـ ١١ قطعة بصرية متكاملة." data-en="Contains all your injected colors, headlines, skills, and agency art-direction rules for all 11 design assets.">
-              يحتوي هذا البرومبت على كافة ألوانك ومعلوماتك وتعليمات التصميم الدقيقة لـ ١١ قطعة بصرية متكاملة.
-            </p>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 0.55rem;">
-            <button type="button" id="copyFinalPromptBtn" class="btn btn-primary" style="width: 100%;">
-              <span>📋</span>
-              <span data-ar="نسخ البرومبت النهائي الكامل" data-en="Copy Final Master Prompt">نسخ البرومبت النهائي الكامل</span>
-            </button>
-            <button type="button" id="downloadFinalPromptBtn" class="btn btn-secondary" style="width: 100%;">
-              <span>💾</span>
-              <span data-ar="تحميل البرومبت كملف (.md)" data-en="Download Prompt File (.md)">تحميل البرومبت كملف (.md)</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Item 2: Reference Image (REFERENCE_IMAGE.JPG) -->
-        <div class="deliverable-card">
-          <div>
-            <span class="deliverable-badge" data-ar="العنصر الثاني (٢/٣)" data-en="Item 2 of 3">العنصر الثاني (٢/٣)</span>
-            <h3 data-ar="🖼️ الصورة المرجعية للتصميم" data-en="🖼️ Reference Design Image">🖼️ الصورة المرجعية للتصميم</h3>
-            <p data-ar="يجب تحميل هذه الصورة وإرفاقها كما هي باسم REFERENCE_IMAGE.JPG لكي يعتمد وكيلك أسلوب الإضاءة والتوزيع البصري منها." data-en="Download and attach this exact image (REFERENCE_IMAGE.JPG) so your AI agent replicates its layout, lighting, and visual system.">
-              يجب تحميل هذه الصورة وإرفاقها كما هي باسم REFERENCE_IMAGE.JPG لكي يعتمد وكيلك أسلوب الإضاءة والتوزيع البصري منها.
-            </p>
-            <div class="ref-thumb-row" style="margin-top: 0.75rem;">
-              <img src="REFERENCE_IMAGE.JPG" alt="REFERENCE_IMAGE.JPG thumbnail" />
-              <div>
-                <div class="mono" style="font-size: 0.8rem; color: var(--accent-primary); font-weight: 700;">REFERENCE_IMAGE.JPG</div>
-                <div style="font-size: 0.76rem; color: var(--text-muted);" data-ar="لوحة الهوية المرجعية المعتمدة" data-en="Official Design System Reference">لوحة الهوية المرجعية المعتمدة</div>
+              <div class="field-group">
+                <label for="field_OPTIONAL_ADDITIONAL_TEXT">
+                  <span data-ar="نص إضافي اختياري" data-en="Optional Text">نص إضافي اختياري</span>
+                  <span class="mono">OPTIONAL_TEXT</span>
+                </label>
+                <input type="text" id="field_OPTIONAL_ADDITIONAL_TEXT" class="field-input" />
               </div>
             </div>
           </div>
-          <button type="button" class="btn btn-outline-accent download-ref-trigger" style="width: 100%;">
-            <span>⬇️</span>
-            <span data-ar="تحميل الصورة المرجعية (REFERENCE_IMAGE.JPG)" data-en="Download REFERENCE_IMAGE.JPG">تحميل الصورة المرجعية (REFERENCE_IMAGE.JPG)</span>
+        </div>
+
+        <div class="panel-footer-nav">
+          <button type="button" id="backToStep1Btn" class="btn btn-secondary">
+            <span data-ar="العودة للخطوة الأولى" data-en="Back to Step 1">العودة للخطوة الأولى</span>
+          </button>
+          <button type="button" id="goToStep3Btn" class="btn btn-primary btn-lg">
+            <span data-ar="حقن البيانات وتوليد البرومبت النهائي — الخطوة 3" data-en="Inject Data & Generate Final Master Prompt — Step 3">حقن البيانات وتوليد البرومبت النهائي — الخطوة 3</span>
           </button>
         </div>
+      </section>
 
-        <!-- Item 3: User Photo (USER_PHOTO) Instructions + Auto-Renamer -->
-        <div class="deliverable-card">
-          <div>
-            <span class="deliverable-badge" data-ar="العنصر الثالث (٣/٣)" data-en="Item 3 of 3">العنصر الثالث (٣/٣)</span>
-            <h3 data-ar="📸 صورتك الشخصية باسم USER_PHOTO" data-en="📸 Your Personal Photo (USER_PHOTO)">📸 صورتك الشخصية باسم USER_PHOTO</h3>
-            <p data-ar="أرفق صورتك الشخصية مع البرومبت والصورة المرجعية وتأكد من المواصفات التالية:" data-en="Attach your personal portrait with these key specifications:">
-              أرفق صورتك الشخصية مع البرومبت والصورة المرجعية وتأكد من المواصفات التالية:
+      <!-- ==================== WORKSPACE STEP 3 PANEL ==================== -->
+      <section class="step-panel" data-panel="3" aria-labelledby="step3Title">
+        <div class="panel-header">
+          <div class="panel-title-group">
+            <h2 id="step3Title" data-ar="3. حقيبتك جاهزة للتوليد! أرسل هذه الـ 3 عناصر لوكيلك الذكي" data-en="3. Ready to Generate! Send These 3 Items Together to Your AI Agent">3. حقيبتك جاهزة للتوليد! أرسل هذه الـ 3 عناصر لوكيلك الذكي</h2>
+            <p data-ar="تم حقن بياناتك بنجاح داخل البرومبت الرئيسي (MASTER PROMPT). كل ما عليك الآن هو إرسال (البرومبت النهائي + الصورة المرجعية REFERENCE_IMAGE.JPG + صورتك الشخصية باسم USER_PHOTO) في رسالة واحدة لوكيلك الذكي، وسيتكفل هو بتصميم الحقيبة الكاملة لك!" data-en="Your details are now injected into the MASTER PROMPT. Simply attach REFERENCE_IMAGE.JPG and your personal photo named USER_PHOTO along with this prompt in one message to your AI agent, and it will handle the rest!">
+              تم حقن بياناتك بنجاح داخل البرومبت الرئيسي (MASTER PROMPT). كل ما عليك الآن هو إرسال (البرومبت النهائي + الصورة المرجعية REFERENCE_IMAGE.JPG + صورتك الشخصية باسم USER_PHOTO) في رسالة واحدة لوكيلك الذكي، وسيتكفل هو بتصميم الحقيبة الكاملة لك!
             </p>
-            <ul class="photo-specs-list" style="margin-top: 0.55rem;">
-              <li data-ar="أن يكون اسم ملف الصورة: USER_PHOTO" data-en="File must be named: USER_PHOTO">أن يكون اسم ملف الصورة: USER_PHOTO</li>
-              <li data-ar="ملامح وجه واضحة وإضاءة جيدة وبدون فلاتر مبالغ فيها" data-en="Clear facial features, good lighting, no heavy filters">ملامح وجه واضحة وإضاءة جيدة وبدون فلاتر مبالغ فيها</li>
-              <li data-ar="زاوية أمامية (من الصدر للأعلى) وجودة عالية" data-en="Front-facing headshot/half-body with high resolution">زاوية أمامية (من الصدر للأعلى) وجودة عالية</li>
-            </ul>
           </div>
+          <span id="injectedUserNameBadge" class="hero-badge">بياناتك المخصصة جاهزة</span>
+        </div>
 
-          <!-- Optional In-Browser Photo Renamer for Non-Technical Users -->
-          <div class="photo-renamer-box">
-            <input type="file" id="userPhotoFileInput" accept="image/jpeg,image/png,image/webp" />
-            <div class="user-photo-preview" id="userPhotoPreviewWrap">
-              <img id="userPhotoPreviewImg" src="" alt="User photo preview" />
-              <span id="userPhotoMetaText" style="font-size: 0.76rem; color: var(--success); font-weight: 700;"></span>
+        <!-- The 3 Required Items Cards -->
+        <div class="step3-top-checklist">
+
+          <!-- Item 1: The Injected Master Prompt -->
+          <div class="deliverable-card highlight-card">
+            <div>
+              <span class="deliverable-badge" data-ar="العنصر الأول (1/3)" data-en="Item 1 of 3">العنصر الأول (1/3)</span>
+              <h3 data-ar="البرومبت النهائي المحقون ببياناتك" data-en="Injected Master Design Prompt">البرومبت النهائي المحقون ببياناتك</h3>
+              <p data-ar="يحتوي هذا البرومبت على كافة ألوانك ومعلوماتك وتعليمات التصميم الدقيقة لـ 11 قطعة بصرية متكاملة." data-en="Contains all your injected colors, headlines, skills, and agency art-direction rules for all 11 design assets.">
+                يحتوي هذا البرومبت على كافة ألوانك ومعلوماتك وتعليمات التصميم الدقيقة لـ 11 قطعة بصرية متكاملة.
+              </p>
             </div>
-            <button type="button" id="selectUserPhotoBtn" class="btn btn-secondary" style="width: 100%; padding: 0.55rem;">
-              <span>🪄</span>
-              <span data-ar="أداة مساعدة: اختر صورتك لتسميتها USER_PHOTO تلقائياً" data-en="Helper: Pick your photo to auto-rename to USER_PHOTO">أداة مساعدة: اختر صورتك لتسميتها USER_PHOTO تلقائياً</span>
-            </button>
-            <button type="button" id="downloadUserPhotoBtn" class="btn btn-primary" style="width: 100%; padding: 0.55rem; display: none;">
-              <span>⬇️</span>
-              <span data-ar="تحميل صورتك باسم USER_PHOTO جاهزة للإرفاق" data-en="Download Renamed USER_PHOTO">تحميل صورتك باسم USER_PHOTO جاهزة للإرفاق</span>
+            <div style="display: flex; flex-direction: column; gap: 0.55rem;">
+              <button type="button" id="copyFinalPromptBtn" class="btn btn-primary" style="width: 100%;">
+                <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span data-ar="نسخ البرومبت النهائي الكامل" data-en="Copy Final Master Prompt">نسخ البرومبت النهائي الكامل</span>
+              </button>
+              <button type="button" id="downloadFinalPromptBtn" class="btn btn-secondary" style="width: 100%;">
+                <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-ar="تحميل البرومبت كملف (.md)" data-en="Download Prompt File (.md)">تحميل البرومبت كملف (.md)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Item 2: Reference Image (REFERENCE_IMAGE.JPG) -->
+          <div class="deliverable-card">
+            <div>
+              <span class="deliverable-badge" data-ar="العنصر الثاني (2/3)" data-en="Item 2 of 3">العنصر الثاني (2/3)</span>
+              <h3 data-ar="الصورة المرجعية للتصميم" data-en="Reference Design Image">الصورة المرجعية للتصميم</h3>
+              <p data-ar="يجب تحميل هذه الصورة وإرفاقها كما هي باسم REFERENCE_IMAGE.JPG لكي يعتمد وكيلك أسلوب الإضاءة والتوزيع البصري منها." data-en="Download and attach this exact image (REFERENCE_IMAGE.JPG) so your AI agent replicates its layout, lighting, and visual system.">
+                يجب تحميل هذه الصورة وإرفاقها كما هي باسم REFERENCE_IMAGE.JPG لكي يعتمد وكيلك أسلوب الإضاءة والتوزيع البصري منها.
+              </p>
+              <div class="ref-thumb-row" style="margin-top: 0.75rem;">
+                <img src="REFERENCE_IMAGE.JPG" alt="REFERENCE_IMAGE.JPG thumbnail" />
+                <div>
+                  <div class="mono" style="font-size: 0.8rem; color: var(--accent-primary); font-weight: 700;">REFERENCE_IMAGE.JPG</div>
+                  <div style="font-size: 0.76rem; color: var(--text-muted);" data-ar="لوحة الهوية المرجعية المعتمدة" data-en="Official Design System Reference">لوحة الهوية المرجعية المعتمدة</div>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline-accent download-ref-trigger" style="width: 100%;">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span data-ar="تحميل الصورة المرجعية (REFERENCE_IMAGE.JPG)" data-en="Download REFERENCE_IMAGE.JPG">تحميل الصورة المرجعية (REFERENCE_IMAGE.JPG)</span>
             </button>
           </div>
+
+          <!-- Item 3: User Photo (USER_PHOTO) Instructions + Auto-Renamer -->
+          <div class="deliverable-card">
+            <div>
+              <span class="deliverable-badge" data-ar="العنصر الثالث (3/3)" data-en="Item 3 of 3">العنصر الثالث (3/3)</span>
+              <h3 data-ar="صورتك الشخصية باسم USER_PHOTO" data-en="Your Personal Photo (USER_PHOTO)">صورتك الشخصية باسم USER_PHOTO</h3>
+              <p data-ar="أرفق صورتك الشخصية مع البرومبت والصورة المرجعية وتأكد من المواصفات التالية:" data-en="Attach your personal portrait with these key specifications:">
+                أرفق صورتك الشخصية مع البرومبت والصورة المرجعية وتأكد من المواصفات التالية:
+              </p>
+              <ul class="photo-specs-list" style="margin-top: 0.55rem;">
+                <li data-ar="أن يكون اسم ملف الصورة: USER_PHOTO" data-en="File must be named: USER_PHOTO">أن يكون اسم ملف الصورة: USER_PHOTO</li>
+                <li data-ar="ملامح وجه واضحة وإضاءة جيدة وبدون فلاتر مبالغ فيها" data-en="Clear facial features, good lighting, no heavy filters">ملامح وجه واضحة وإضاءة جيدة وبدون فلاتر مبالغ فيها</li>
+                <li data-ar="زاوية أمامية (من الصدر للأعلى) وجودة عالية" data-en="Front-facing headshot/half-body with high resolution">زاوية أمامية (من الصدر للأعلى) وجودة عالية</li>
+              </ul>
+            </div>
+
+            <!-- Optional In-Browser Photo Renamer for Non-Technical Users -->
+            <div class="photo-renamer-box">
+              <input type="file" id="userPhotoFileInput" accept="image/jpeg,image/png,image/webp" />
+              <div class="user-photo-preview" id="userPhotoPreviewWrap">
+                <img id="userPhotoPreviewImg" src="" alt="User photo preview" />
+                <span id="userPhotoMetaText" style="font-size: 0.76rem; color: var(--success); font-weight: 700;"></span>
+              </div>
+              <button type="button" id="selectUserPhotoBtn" class="btn btn-secondary trigger-photo-renamer-btn" style="width: 100%; padding: 0.55rem;">
+                <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                <span data-ar="أداة مساعدة: اختر صورتك لتسميتها USER_PHOTO تلقائياً" data-en="Helper: Pick your photo to auto-rename to USER_PHOTO">أداة مساعدة: اختر صورتك لتسميتها USER_PHOTO تلقائياً</span>
+              </button>
+              <button type="button" id="downloadUserPhotoBtn" class="btn btn-primary" style="width: 100%; padding: 0.55rem; display: none;">
+                <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-ar="تحميل صورتك باسم USER_PHOTO جاهزة للإرفاق" data-en="Download Renamed USER_PHOTO">تحميل صورتك باسم USER_PHOTO جاهزة للإرفاق</span>
+              </button>
+            </div>
+          </div>
+
         </div>
 
-      </div>
+        <!-- Final Injected Master Prompt Viewer -->
+        <div class="prompt-box-wrapper">
+          <div class="prompt-toolbar">
+            <span class="toolbar-file-badge">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="mono">MASTER PROMPT — AI PERSONAL BRANDING DESIGN SYSTEM (Injected)</span>
+            </span>
+            <div class="toolbar-actions">
+              <button type="button" class="btn btn-primary" onclick="document.getElementById('copyFinalPromptBtn').click()">
+                <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span data-ar="نسخ البرومبت النهائي" data-en="Copy Final Prompt">نسخ البرومبت النهائي</span>
+              </button>
+            </div>
+          </div>
+          <pre id="finalMasterPromptPre" class="prompt-pre mono" aria-label="Final Injected Master Prompt"></pre>
+        </div>
 
-      <!-- Final Injected Master Prompt Viewer -->
-      <div class="prompt-box-wrapper">
-        <div class="prompt-toolbar">
-          <span class="toolbar-file-badge">
-            <span>✨</span>
-            <span class="mono">MASTER PROMPT — AI PERSONAL BRANDING DESIGN SYSTEM (Injected)</span>
-          </span>
+        <div class="panel-footer-nav">
+          <button type="button" id="backToStep2Btn" class="btn btn-secondary">
+            <span data-ar="العودة لتعديل البيانات (الخطوة 2)" data-en="Back to Edit Data (Step 2)">العودة لتعديل البيانات (الخطوة 2)</span>
+          </button>
           <div class="toolbar-actions">
-            <button type="button" class="btn btn-primary" onclick="document.getElementById('copyFinalPromptBtn').click()">
-              <span>📋</span>
-              <span data-ar="نسخ البرومبت النهائي" data-en="Copy Final Prompt">نسخ البرومبت النهائي</span>
-            </button>
+            <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent">
+              <span data-ar="افتح ChatGPT وابدأ التوليد الآن" data-en="Open ChatGPT & Generate Now">افتح ChatGPT وابدأ التوليد الآن</span>
+            </a>
+            <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent">
+              <span data-ar="افتح Gemini" data-en="Open Gemini">افتح Gemini</span>
+            </a>
           </div>
         </div>
-        <pre id="finalMasterPromptPre" class="prompt-pre mono" aria-label="Final Injected Master Prompt"></pre>
-      </div>
+      </section>
 
-      <div class="panel-footer-nav">
-        <button type="button" id="backToStep2Btn" class="btn btn-secondary">
-          <span data-ar="→ العودة لتعديل البيانات (الخطوة ٢)" data-en="← Back to Edit Data (Step 2)">→ العودة لتعديل البيانات (الخطوة ٢)</span>
-        </button>
-        <div class="toolbar-actions">
-          <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent">
-            <span data-ar="افتح ChatGPT وابدأ التوليد الآن ↗" data-en="Open ChatGPT & Generate Now ↗">افتح ChatGPT وابدأ التوليد الآن ↗</span>
-          </a>
-          <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent">
-            <span data-ar="افتح Gemini ↗" data-en="Open Gemini ↗">افتح Gemini ↗</span>
-          </a>
-        </div>
-      </div>
-    </section>
+    </div>
 
     <!-- Creator Marketing & Copyright Showcase (Ali Nasser) -->
     <aside class="creator-showcase" aria-label="About the Creator Ali Nasser">
       <div class="creator-info">
         <div class="creator-avatar" aria-hidden="true">AN</div>
         <div class="creator-text">
-          <h3 data-ar="تم تصميم وتطوير هذه الأداة بواسطة: علي ناصر (Ali Nasser)" data-en="Designed & Engineered by Ali Nasser">تم تصميم وتطوير هذه الأداة بواسطة: علي ناصر (Ali Nasser)</h3>
+          <h3>Built &amp; Crafted by: Ali Nasser</h3>
           <p data-ar="مهندس برمجيات ومطور حلول ذكاء اصطناعي — أشارك أدوات عملية ومشاريع مفتوحة المصدر لمساعدة المحترفين وصنّاع المحتوى على بناء حضور رقمي استثنائي." data-en="Software Engineer & AI Solutions Builder — creating practical tools, open-source workflows, and modern digital products.">
             مهندس برمجيات ومطور حلول ذكاء اصطناعي — أشارك أدوات عملية ومشاريع مفتوحة المصدر لمساعدة المحترفين وصنّاع المحتوى على بناء حضور رقمي استثنائي.
           </p>
@@ -532,15 +1008,25 @@
 
       <div class="creator-links">
         <a href="https://www.ali-nasser.dev" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-          <span>🌐</span>
+          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
           <span data-ar="موقعي الشخصي: ali-nasser.dev" data-en="Website: ali-nasser.dev">موقعي الشخصي: ali-nasser.dev</span>
         </a>
         <a href="https://www.linkedin.com/in/ali-nasser-dev/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-          <span>💼</span>
+          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
           <span data-ar="تابعني على LinkedIn" data-en="Connect on LinkedIn">تابعني على LinkedIn</span>
         </a>
         <a href="https://github.com/a360n" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-          <span>💻</span>
+          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
           <span data-ar="حسابي على GitHub (@a360n)" data-en="GitHub (@a360n)">حسابي على GitHub (@a360n)</span>
         </a>
       </div>
@@ -562,9 +1048,14 @@
       <h3 id="modalTitle" data-ar="نموذج الحقيبة التسويقية الكاملة (REFERENCE_IMAGE.JPG)" data-en="Full Reference Brand Kit (REFERENCE_IMAGE.JPG)">نموذج الحقيبة التسويقية الكاملة (REFERENCE_IMAGE.JPG)</h3>
       <div class="toolbar-actions">
         <button type="button" class="btn btn-primary download-ref-trigger" style="padding: 0.45rem 0.9rem; font-size: 0.85rem;">
-          <span data-ar="⬇️ تحميل الصورة" data-en="⬇️ Download Image">⬇️ تحميل الصورة</span>
+          <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span data-ar="تحميل الصورة" data-en="Download Image">تحميل الصورة</span>
         </button>
-        <button type="button" id="closeRefModalBtn" class="btn btn-secondary" style="padding: 0.45rem 0.85rem; font-size: 0.85rem;">✕</button>
+        <button type="button" id="closeRefModalBtn" class="btn btn-secondary" style="padding: 0.45rem 0.85rem; font-size: 0.85rem;" aria-label="Close modal">X</button>
       </div>
     </div>
     <div class="modal-body-img">
@@ -575,7 +1066,7 @@
   <!-- Popover Toast Notification per modern-web-guidance (persistent-toast-notifications) -->
   <div id="appToast" popover="manual" class="toast-popover" role="status" aria-live="polite">
     <span id="toastMessage"></span>
-    <button type="button" class="toast-close-btn" popovertarget="appToast" popovertargetaction="hide" aria-label="Close notification">✕</button>
+    <button type="button" class="toast-close-btn" popovertarget="appToast" popovertargetaction="hide" aria-label="Close notification">X</button>
   </div>
 
   <script type="module" src="app.js"></script>

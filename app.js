@@ -90,7 +90,7 @@ const DEFAULT_BRAND_DATA = {
   OPTIONAL_ADDITIONAL_TEXT: ""
 };
 
-// Demo Brand Data (Showcasing Ali Nasser!)
+// Demo Brand Data (Showcasing Ali Nasser)
 const DEMO_BRAND_DATA = {
   PRIMARY_COLOR: "#C3FF01",
   SECONDARY_COLOR: "#F4F4F4",
@@ -117,7 +117,6 @@ const DEMO_BRAND_DATA = {
 let currentBrandData = structuredClone(DEFAULT_BRAND_DATA);
 let currentLang = "ar";
 let toastTimeout = null;
-let selectedUserPhotoFile = null;
 
 // Build Master Prompt with Injected Values
 function buildMasterPrompt(data) {
@@ -619,24 +618,21 @@ Before delivering either banner:
 These requirements override any conflicting layout, spacing, or export instructions elsewhere in this prompt.`;
 }
 
-// Smart JSON Extractor (handles markdown fences, escaped underscores, conversational prefix/suffix)
+// Smart JSON Extractor & Compatibility Validator
 function smartParseBrandJSON(rawText) {
   if (!rawText || !rawText.trim()) {
     return { ok: false, error: "empty" };
   }
 
   let cleaned = rawText.trim();
-  // Remove markdown code fences if present
   cleaned = cleaned.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "");
 
-  // Extract first '{' to last '}'
   const firstBrace = cleaned.indexOf("{");
   const lastBrace = cleaned.lastIndexOf("}");
   if (firstBrace !== -1 && lastBrace !== -1 && lastBrace > firstBrace) {
     cleaned = cleaned.slice(firstBrace, lastBrace + 1);
   }
 
-  // Unescape markdown-escaped underscores or brackets if AI copied escaped keys
   cleaned = cleaned
     .replace(/\\_/g, "_")
     .replace(/\\#/g, "#")
@@ -646,22 +642,41 @@ function smartParseBrandJSON(rawText) {
 
   try {
     const parsed = JSON.parse(cleaned);
+    if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+      return { ok: false, error: "not_object" };
+    }
+
     const normalized = structuredClone(DEFAULT_BRAND_DATA);
+    let matchedKeysCount = 0;
+    const keyStatus = {};
 
     for (const key of Object.keys(DEFAULT_BRAND_DATA)) {
       if (key === "KEYWORDS / SKILLS") {
         const val = parsed["KEYWORDS / SKILLS"] ?? parsed["KEYWORDS_SKILLS"] ?? parsed["SKILLS"];
-        if (Array.isArray(val)) {
-          normalized["KEYWORDS / SKILLS"] = val.map((item) => String(item).trim()).filter(Boolean).slice(0, 3);
-        } else if (typeof val === "string" && val.trim()) {
-          normalized["KEYWORDS / SKILLS"] = val.split(",").map((s) => s.trim()).filter(Boolean).slice(0, 3);
+        if (val !== undefined) {
+          matchedKeysCount++;
+          keyStatus[key] = true;
+          if (Array.isArray(val)) {
+            normalized["KEYWORDS / SKILLS"] = val.map((item) => String(item).trim()).filter(Boolean).slice(0, 3);
+          } else if (typeof val === "string" && val.trim()) {
+            normalized["KEYWORDS / SKILLS"] = val.split(",").map((s) => s.trim()).filter(Boolean).slice(0, 3);
+          }
+        } else {
+          keyStatus[key] = false;
         }
       } else if (parsed[key] !== undefined && parsed[key] !== null) {
+        matchedKeysCount++;
+        keyStatus[key] = true;
         normalized[key] = String(parsed[key]).trim();
+      } else {
+        keyStatus[key] = false;
       }
     }
 
-    // Ensure valid HEX colors or fallback
+    if (matchedKeysCount === 0) {
+      return { ok: false, error: "no_matching_keys" };
+    }
+
     ["PRIMARY_COLOR", "SECONDARY_COLOR", "TERTIARY_COLOR"].forEach((colorKey) => {
       let c = normalized[colorKey];
       if (c && !c.startsWith("#") && /^[0-9A-Fa-f]{6}$/.test(c)) {
@@ -673,7 +688,7 @@ function smartParseBrandJSON(rawText) {
       normalized[colorKey] = c.toUpperCase();
     });
 
-    return { ok: true, data: normalized };
+    return { ok: true, data: normalized, matchedKeysCount, keyStatus };
   } catch (err) {
     return { ok: false, error: err.message };
   }
@@ -712,8 +727,70 @@ function showToast(message) {
   }, 3200);
 }
 
-// Step Navigation
-function goToStep(stepNumber) {
+// View Transition helper with mandatory focus routing per modern-web-guidance (same-document-transitions)
+function runViewTransition(updateCallback, focusTargetId) {
+  if (!document.startViewTransition) {
+    updateCallback();
+    if (focusTargetId) {
+      document.getElementById(focusTargetId)?.focus();
+    }
+    return;
+  }
+  const transition = document.startViewTransition(() => {
+    updateCallback();
+  });
+  transition.finished.finally(() => {
+    if (focusTargetId) {
+      document.getElementById(focusTargetId)?.focus();
+    }
+  });
+}
+
+// Navigate between Guided Pages (0, 1, 2, 3)
+function goToGuidedPage(pageIndex) {
+  const headingId = `gpage${pageIndex}Heading`;
+  runViewTransition(() => {
+    document.querySelectorAll(".guided-page").forEach((page) => {
+      page.classList.toggle("active", Number(page.dataset.gpage) === pageIndex);
+    });
+    document.querySelectorAll(".guided-dot").forEach((dot) => {
+      const idx = Number(dot.dataset.gdot);
+      dot.classList.toggle("active", idx === pageIndex);
+      dot.classList.toggle("done", idx < pageIndex);
+    });
+    if (pageIndex === 3) {
+      refreshMasterPromptPreview();
+    }
+  }, headingId);
+}
+
+// Switch between Guided Flow and Full Workspace View
+function showFullWorkspace(targetWorkspaceStep = 3) {
+  runViewTransition(() => {
+    document.getElementById("guidedWizardView")?.classList.add("hidden-view");
+    document.getElementById("fullWorkspaceView")?.classList.remove("hidden-view");
+    goToWorkspaceStep(targetWorkspaceStep);
+  }, "heroHeading");
+}
+
+function showGuidedFlow(targetGuidedPage = 0) {
+  const headingId = `gpage${targetGuidedPage}Heading`;
+  runViewTransition(() => {
+    document.getElementById("fullWorkspaceView")?.classList.add("hidden-view");
+    document.getElementById("guidedWizardView")?.classList.remove("hidden-view");
+    document.querySelectorAll(".guided-page").forEach((page) => {
+      page.classList.toggle("active", Number(page.dataset.gpage) === targetGuidedPage);
+    });
+    document.querySelectorAll(".guided-dot").forEach((dot) => {
+      const idx = Number(dot.dataset.gdot);
+      dot.classList.toggle("active", idx === targetGuidedPage);
+      dot.classList.toggle("done", idx < targetGuidedPage);
+    });
+  }, headingId);
+}
+
+// Workspace Step Navigation (1, 2, 3)
+function goToWorkspaceStep(stepNumber) {
   document.querySelectorAll(".step-tab").forEach((tab) => {
     const s = Number(tab.dataset.step);
     tab.classList.toggle("active", s === stepNumber);
@@ -727,15 +804,68 @@ function goToStep(stepNumber) {
   if (stepNumber === 3) {
     refreshMasterPromptPreview();
   }
+}
 
-  const stepperEl = document.querySelector(".stepper-nav");
-  if (stepperEl) {
-    stepperEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+// Render Guided Validation Report
+function renderGuidedValidationReport(parseResult) {
+  const banner = document.getElementById("guidedValidationBanner");
+  const reportBox = document.getElementById("guidedValidationReport");
+  const keysGrid = document.getElementById("guidedValidationKeysGrid");
+
+  if (!banner) return;
+
+  if (parseResult.ok) {
+    banner.className = "parse-status-banner status-ok";
+    banner.textContent =
+      currentLang === "ar"
+        ? `تم التحقق بنجاح: المخرجات متوافقة (${parseResult.matchedKeysCount} حقل مطابق) وجاهزة للحقن في الخطوة الأخيرة.`
+        : `Verified Compatible: Output matches expected JSON schema (${parseResult.matchedKeysCount} fields verified) and is ready for the Final Step.`;
+
+    if (reportBox && keysGrid) {
+      reportBox.style.display = "block";
+      const displayKeys = [
+        "PRIMARY_COLOR",
+        "SECONDARY_COLOR",
+        "TERTIARY_COLOR",
+        "FULL_NAME",
+        "PROFESSIONAL_TITLE",
+        "MAIN_HEADLINE",
+        "KEYWORDS / SKILLS",
+        "PORTFOLIO_URL"
+      ];
+      keysGrid.innerHTML = "";
+      displayKeys.forEach((k) => {
+        const pill = document.createElement("div");
+        const isValid = Boolean(parseResult.keyStatus?.[k]);
+        pill.className = `key-check-pill ${isValid ? "valid" : ""}`;
+        const labelSpan = document.createElement("span");
+        labelSpan.textContent = k;
+        const stateSpan = document.createElement("span");
+        stateSpan.textContent = isValid ? "OK" : "—";
+        pill.appendChild(labelSpan);
+        pill.appendChild(stateSpan);
+        keysGrid.appendChild(pill);
+      });
+    }
+  } else if (parseResult.error === "empty") {
+    banner.className = "parse-status-banner status-idle";
+    banner.textContent =
+      currentLang === "ar"
+        ? "حالة التحقق التلقائي: بانتظار لصق المخرجات للتحقق من توافقها..."
+        : "Auto-Validation Status: Waiting for pasted output to verify compatibility...";
+    if (reportBox) reportBox.style.display = "none";
+  } else {
+    banner.className = "parse-status-banner status-error";
+    banner.textContent =
+      currentLang === "ar"
+        ? "تنبيه: المخرجات غير متوافقة مع صيغة JSON المطلوبة — تأكد من نسخ كود JSON بالكامل من وكيلك."
+        : "Incompatible JSON output — please make sure you copied the complete JSON block from your AI assistant.";
+    if (reportBox) reportBox.style.display = "none";
   }
 }
 
 // Sync Form UI from currentBrandData
-function syncFormFromState(updateTextarea = false) {
+function syncFormFromState(updateTextareas = false) {
   ["PRIMARY_COLOR", "SECONDARY_COLOR", "TERTIARY_COLOR"].forEach((key) => {
     const hexInput = document.getElementById(`hex_${key}`);
     const pickerInput = document.getElementById(`picker_${key}`);
@@ -744,7 +874,6 @@ function syncFormFromState(updateTextarea = false) {
     if (pickerInput && /^#[0-9A-Fa-f]{6}$/.test(val)) pickerInput.value = val;
   });
 
-  // Update dynamic CSS variables
   document.documentElement.style.setProperty("--user-primary", currentBrandData.PRIMARY_COLOR);
   document.documentElement.style.setProperty("--user-secondary", currentBrandData.SECONDARY_COLOR);
   document.documentElement.style.setProperty("--user-tertiary", currentBrandData.TERTIARY_COLOR);
@@ -774,11 +903,12 @@ function syncFormFromState(updateTextarea = false) {
     skillsEl.value = (currentBrandData["KEYWORDS / SKILLS"] || []).join(", ");
   }
 
-  if (updateTextarea) {
+  if (updateTextareas) {
+    const formatted = JSON.stringify(currentBrandData, null, 2);
     const jsonArea = document.getElementById("jsonPasteArea");
-    if (jsonArea) {
-      jsonArea.value = JSON.stringify(currentBrandData, null, 2);
-    }
+    const guidedJsonArea = document.getElementById("guidedJsonPasteArea");
+    if (jsonArea) jsonArea.value = formatted;
+    if (guidedJsonArea) guidedJsonArea.value = formatted;
   }
 
   refreshMasterPromptPreview();
@@ -834,8 +964,11 @@ function attachVisualFormListeners() {
     if (el) {
       el.addEventListener("input", (e) => {
         currentBrandData[key] = e.target.value;
+        const formatted = JSON.stringify(currentBrandData, null, 2);
         const jsonArea = document.getElementById("jsonPasteArea");
-        if (jsonArea) jsonArea.value = JSON.stringify(currentBrandData, null, 2);
+        const guidedJsonArea = document.getElementById("guidedJsonPasteArea");
+        if (jsonArea) jsonArea.value = formatted;
+        if (guidedJsonArea) guidedJsonArea.value = formatted;
         refreshMasterPromptPreview();
       });
     }
@@ -849,14 +982,17 @@ function attachVisualFormListeners() {
         .map((s) => s.trim())
         .filter(Boolean)
         .slice(0, 3);
+      const formatted = JSON.stringify(currentBrandData, null, 2);
       const jsonArea = document.getElementById("jsonPasteArea");
-      if (jsonArea) jsonArea.value = JSON.stringify(currentBrandData, null, 2);
+      const guidedJsonArea = document.getElementById("guidedJsonPasteArea");
+      if (jsonArea) jsonArea.value = formatted;
+      if (guidedJsonArea) guidedJsonArea.value = formatted;
       refreshMasterPromptPreview();
     });
   }
 }
 
-function updateParseStatus(type, message) {
+function updateWorkspaceParseStatus(type, message) {
   const banner = document.getElementById("jsonParseStatus");
   if (!banner) return;
   banner.className = `parse-status-banner status-${type}`;
@@ -864,11 +1000,12 @@ function updateParseStatus(type, message) {
 }
 
 function refreshMasterPromptPreview() {
+  const promptText = buildMasterPrompt(currentBrandData);
   const pre = document.getElementById("finalMasterPromptPre");
-  if (!pre) return;
-  pre.textContent = buildMasterPrompt(currentBrandData);
+  const guidedPre = document.getElementById("guidedFinalMasterPromptPre");
+  if (pre) pre.textContent = promptText;
+  if (guidedPre) guidedPre.textContent = promptText;
 
-  // Also update summary badge in Step 3
   const summaryName = document.getElementById("injectedUserNameBadge");
   if (summaryName) {
     summaryName.textContent =
@@ -903,8 +1040,8 @@ function downloadReferenceImage() {
   a.remove();
   showToast(
     currentLang === "ar"
-      ? "✅ جاري تحميل الصورة المرجعية REFERENCE_IMAGE.JPG"
-      : "✅ Downloading REFERENCE_IMAGE.JPG"
+      ? "جاري تحميل الصورة المرجعية REFERENCE_IMAGE.JPG"
+      : "Downloading REFERENCE_IMAGE.JPG"
   );
 }
 
@@ -912,7 +1049,6 @@ function downloadReferenceImage() {
 function handleUserPhotoSelect(event) {
   const file = event.target.files?.[0];
   if (!file) return;
-  selectedUserPhotoFile = file;
 
   const previewWrap = document.getElementById("userPhotoPreviewWrap");
   const previewImg = document.getElementById("userPhotoPreviewImg");
@@ -929,23 +1065,33 @@ function handleUserPhotoSelect(event) {
   if (photoNameMeta) {
     photoNameMeta.textContent =
       currentLang === "ar"
-        ? `تم تجهيز الصورة بنجاح ← سيُحفظ الملف باسم: ${targetName}`
-        : `Photo ready → Will be saved as: ${targetName}`;
+        ? `تم تجهيز الصورة بنجاح — سيُحفظ الملف باسم: ${targetName}`
+        : `Photo ready — Will be saved as: ${targetName}`;
   }
+
+  // Trigger immediate download of renamed USER_PHOTO for maximum simplicity
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = targetName;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+
+  showToast(
+    currentLang === "ar"
+      ? `تم تحميل صورتك باسم ${targetName} جاهزة للإرفاق`
+      : `Downloaded your photo renamed as ${targetName}`
+  );
+
   if (downloadBtn) {
     downloadBtn.style.display = "inline-flex";
     downloadBtn.onclick = () => {
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = targetName;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      showToast(
-        currentLang === "ar"
-          ? `✅ تم تحميل صورتك باسم ${targetName} جاهزة للإرفاق!`
-          : `✅ Downloaded your photo as ${targetName}!`
-      );
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = targetName;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
     };
   }
 }
@@ -966,83 +1112,200 @@ function toggleLanguage() {
       currentLang === "ar" ? el.dataset.placeholderAr : el.dataset.placeholderEn;
   });
 
+  const guidedArea = document.getElementById("guidedJsonPasteArea");
+  if (guidedArea && guidedArea.value.trim()) {
+    renderGuidedValidationReport(smartParseBrandJSON(guidedArea.value));
+  } else {
+    renderGuidedValidationReport({ ok: false, error: "empty" });
+  }
+
   refreshMasterPromptPreview();
+}
+
+// Handle JSON Input from either Guided or Workspace textarea
+function processJsonInput(rawValue, source) {
+  const res = smartParseBrandJSON(rawValue);
+  const jsonArea = document.getElementById("jsonPasteArea");
+  const guidedJsonArea = document.getElementById("guidedJsonPasteArea");
+
+  if (source === "guided" && jsonArea) {
+    jsonArea.value = rawValue;
+  } else if (source === "workspace" && guidedJsonArea) {
+    guidedJsonArea.value = rawValue;
+  }
+
+  renderGuidedValidationReport(res);
+
+  if (res.ok) {
+    currentBrandData = res.data;
+    syncFormFromState(false);
+    updateWorkspaceParseStatus(
+      "ok",
+      currentLang === "ar"
+        ? "تم التحقق واستخراج بيانات الهوية بنجاح! يمكنك مراجعتها أو تعديلها."
+        : "Brand JSON verified and parsed successfully! You can review or tweak any field."
+    );
+  } else if (res.error === "empty") {
+    updateWorkspaceParseStatus(
+      "idle",
+      currentLang === "ar"
+        ? "بانتظار لصق مخرجات الـ JSON من وكيل الذكاء الاصطناعي..."
+        : "Waiting for you to paste the JSON output from your AI assistant..."
+    );
+  } else {
+    updateWorkspaceParseStatus(
+      "error",
+      currentLang === "ar"
+        ? "النص الملصق غير متوافق مع صيغة JSON المطلوبة — تأكد من نسخ المخرجات كاملة."
+        : "Could not validate JSON output — make sure you copied the full block."
+    );
+  }
 }
 
 // Initialize App
 document.addEventListener("DOMContentLoaded", () => {
-  // Populate Step 1 Prompt
+  // Populate Step 1 Prompt in both Guided and Workspace views
   const step1Pre = document.getElementById("step1PromptPre");
+  const guidedStep1Pre = document.getElementById("guidedStep1PromptPre");
   if (step1Pre) step1Pre.textContent = STEP_1_PROMPT;
+  if (guidedStep1Pre) guidedStep1Pre.textContent = STEP_1_PROMPT;
 
-  // Stepper Tab Clicks
+  // ==================== GUIDED FLOW LISTENERS ====================
+  document.getElementById("startGuidedStep1Btn")?.addEventListener("click", () => {
+    goToGuidedPage(1);
+  });
+
+  document.getElementById("guidedBackTo0Btn")?.addEventListener("click", () => {
+    goToGuidedPage(0);
+  });
+
+  document.getElementById("guidedCopyStep1Btn")?.addEventListener("click", () => {
+    copyText(
+      STEP_1_PROMPT,
+      "تم نسخ البرومبت الأول بنجاح! الصقه الآن في وكيل الذكاء الاصطناعي الخاص بك.",
+      "First prompt copied! Paste it now into your AI assistant."
+    );
+  });
+
+  document.getElementById("guidedToStep2Btn")?.addEventListener("click", () => {
+    goToGuidedPage(2);
+  });
+
+  document.getElementById("guidedBackTo1Btn")?.addEventListener("click", () => {
+    goToGuidedPage(1);
+  });
+
+  const guidedJsonArea = document.getElementById("guidedJsonPasteArea");
+  if (guidedJsonArea) {
+    guidedJsonArea.addEventListener("input", (e) => {
+      processJsonInput(e.target.value, "guided");
+    });
+  }
+
+  document.getElementById("guidedPasteBtn")?.addEventListener("click", async () => {
+    try {
+      const clipText = await navigator.clipboard.readText();
+      if (clipText && guidedJsonArea) {
+        guidedJsonArea.value = clipText;
+        processJsonInput(clipText, "guided");
+        showToast(
+          currentLang === "ar"
+            ? "تم اللصق من الحافظة والتحقق من البيانات"
+            : "Pasted from clipboard and verified"
+        );
+      }
+    } catch {
+      guidedJsonArea?.focus();
+      showToast(
+        currentLang === "ar"
+          ? "اضغط Ctrl+V أو Cmd+V داخل الحقل للصق المخرجات"
+          : "Press Ctrl+V or Cmd+V inside the field to paste"
+      );
+    }
+  });
+
+  document.getElementById("guidedLoadDemoBtn")?.addEventListener("click", () => {
+    currentBrandData = structuredClone(DEMO_BRAND_DATA);
+    syncFormFromState(true);
+    processJsonInput(JSON.stringify(DEMO_BRAND_DATA, null, 2), "guided");
+    showToast(
+      currentLang === "ar"
+        ? "تم تحميل بيانات تجريبية متوافقة (Ali Nasser)"
+        : "Loaded compatible demo data (Ali Nasser)"
+    );
+  });
+
+  document.getElementById("guidedToStep3Btn")?.addEventListener("click", () => {
+    refreshMasterPromptPreview();
+    goToGuidedPage(3);
+  });
+
+  document.getElementById("guidedBackTo2Btn")?.addEventListener("click", () => {
+    goToGuidedPage(2);
+  });
+
+  document.getElementById("guidedCopyFinalPromptBtn")?.addEventListener("click", () => {
+    copyText(
+      buildMasterPrompt(currentBrandData),
+      "تم نسخ البرومبت الجاهز! أرفق معه REFERENCE_IMAGE.JPG وصورتك USER_PHOTO لوكيلك.",
+      "Ready Master Prompt copied! Attach REFERENCE_IMAGE.JPG and your USER_PHOTO."
+    );
+  });
+
+  // Finish Guided Flow -> Open Existing Full Workspace View
+  document.getElementById("finishGuidedFlowBtn")?.addEventListener("click", () => {
+    showFullWorkspace(3);
+  });
+
+  document.getElementById("skipToWorkspaceBtn")?.addEventListener("click", () => {
+    showFullWorkspace(1);
+  });
+
+  document.getElementById("returnToGuidedBtn")?.addEventListener("click", () => {
+    showGuidedFlow(0);
+  });
+
+  // ==================== FULL WORKSPACE LISTENERS ====================
   document.querySelectorAll(".step-tab").forEach((tab) => {
     tab.addEventListener("click", () => {
-      goToStep(Number(tab.dataset.step));
+      goToWorkspaceStep(Number(tab.dataset.step));
     });
   });
 
-  // Step 1 Copy Button
   document.getElementById("copyStep1Btn")?.addEventListener("click", () => {
     copyText(
       STEP_1_PROMPT,
-      "✅ تم نسخ برومبت الخطوة الأولى! الصقه الآن في ChatGPT أو Claude أو Gemini.",
-      "✅ Step 1 Prompt copied! Paste it into ChatGPT, Claude, or Gemini."
+      "تم نسخ برومبت الخطوة الأولى! الصقه الآن في ChatGPT أو Claude أو Gemini.",
+      "Step 1 Prompt copied! Paste it into ChatGPT, Claude, or Gemini."
     );
   });
 
   document.getElementById("copyStep1AndNextBtn")?.addEventListener("click", () => {
     copyText(
       STEP_1_PROMPT,
-      "✅ تم نسخ البرومبت! بعد الحصول على كود JSON من وكيلك، الصقه هنا في الخطوة ٢.",
-      "✅ Prompt copied! Once your AI gives you the JSON output, paste it here in Step 2."
+      "تم نسخ البرومبت! بعد الحصول على كود JSON من وكيلك، الصقه هنا في الخطوة 2.",
+      "Prompt copied! Once your AI gives you the JSON output, paste it here in Step 2."
     );
-    goToStep(2);
+    goToWorkspaceStep(2);
   });
 
-  // Step 2 Paste & Parse Listeners
   const jsonArea = document.getElementById("jsonPasteArea");
   if (jsonArea) {
     jsonArea.addEventListener("input", (e) => {
-      const res = smartParseBrandJSON(e.target.value);
-      if (res.ok) {
-        currentBrandData = res.data;
-        syncFormFromState(false);
-        updateParseStatus(
-          "ok",
-          currentLang === "ar"
-            ? "✓ تم قراءة واستخراج بيانات الهوية بنجاح! يمكنك مراجعتها أو تعديلها باليسار."
-            : "✓ Brand JSON parsed successfully! You can review or tweak any field."
-        );
-      } else if (res.error === "empty") {
-        updateParseStatus(
-          "idle",
-          currentLang === "ar"
-            ? "بانتظار لصق مخرجات الـ JSON من وكيل الذكاء الاصطناعي..."
-            : "Waiting for you to paste the JSON output from your AI assistant..."
-        );
-      } else {
-        updateParseStatus(
-          "error",
-          currentLang === "ar"
-            ? "⚠️ النص الملصق لا يبدو كملف JSON مكتمل بعد — تأكد من نسخ المخرجات كاملة أو اضغط (بيانات تجريبية)."
-            : "⚠️ Could not parse valid JSON yet — make sure you copied the full block or click Load Demo."
-        );
-      }
+      processJsonInput(e.target.value, "workspace");
     });
   }
 
-  // Paste from Clipboard Button
   document.getElementById("pasteClipboardBtn")?.addEventListener("click", async () => {
     try {
       const clipText = await navigator.clipboard.readText();
       if (clipText && jsonArea) {
         jsonArea.value = clipText;
-        jsonArea.dispatchEvent(new Event("input"));
+        processJsonInput(clipText, "workspace");
         showToast(
           currentLang === "ar"
-            ? "✅ تم اللصق من الحافظة واستخراج البيانات!"
-            : "✅ Pasted from clipboard and parsed!"
+            ? "تم اللصق من الحافظة واستخراج البيانات"
+            : "Pasted from clipboard and parsed"
         );
       }
     } catch {
@@ -1055,43 +1318,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Load Demo Data Button (Ali Nasser showcase)
   document.getElementById("loadDemoBtn")?.addEventListener("click", () => {
     currentBrandData = structuredClone(DEMO_BRAND_DATA);
     syncFormFromState(true);
-    updateParseStatus(
-      "ok",
-      currentLang === "ar"
-        ? "✓ تم تحميل بيانات تجريبية (هوية Ali Nasser) — يمكنك التعديل عليها أو الانتقال للخطوة ٣!"
-        : "✓ Loaded demo brand data (Ali Nasser) — tweak any field or proceed to Step 3!"
-    );
+    processJsonInput(JSON.stringify(DEMO_BRAND_DATA, null, 2), "workspace");
     showToast(
       currentLang === "ar"
-        ? "✨ تم تعبئة مثال تفاعلي جاهز للتجربة!"
-        : "✨ Interactive demo data loaded!"
+        ? "تم تعبئة مثال تفاعلي جاهز للتجربة"
+        : "Interactive demo data loaded"
     );
   });
 
-  // Step 2 -> Step 3 Button
   document.getElementById("goToStep3Btn")?.addEventListener("click", () => {
     refreshMasterPromptPreview();
-    goToStep(3);
+    goToWorkspaceStep(3);
     showToast(
       currentLang === "ar"
-        ? "🎉 تم حقن بياناتك وتوليد البرومبت النهائي بنجاح!"
-        : "🎉 Your data has been injected into the Final Master Prompt!"
+        ? "تم حقن بياناتك وتوليد البرومبت النهائي بنجاح"
+        : "Your data has been injected into the Final Master Prompt"
     );
   });
 
-  document.getElementById("backToStep1Btn")?.addEventListener("click", () => goToStep(1));
-  document.getElementById("backToStep2Btn")?.addEventListener("click", () => goToStep(2));
+  document.getElementById("backToStep1Btn")?.addEventListener("click", () => goToWorkspaceStep(1));
+  document.getElementById("backToStep2Btn")?.addEventListener("click", () => goToWorkspaceStep(2));
 
-  // Step 3 Actions
   document.getElementById("copyFinalPromptBtn")?.addEventListener("click", () => {
     copyText(
       buildMasterPrompt(currentBrandData),
-      "🚀 تم نسخ البرومبت النهائي المحقون ببياناتك! أرفق معه REFERENCE_IMAGE.JPG وصورتك USER_PHOTO.",
-      "🚀 Final Master Prompt copied! Attach REFERENCE_IMAGE.JPG and your USER_PHOTO."
+      "تم نسخ البرومبت النهائي المحقون ببياناتك! أرفق معه REFERENCE_IMAGE.JPG وصورتك USER_PHOTO.",
+      "Final Master Prompt copied! Attach REFERENCE_IMAGE.JPG and your USER_PHOTO."
     );
   });
 
@@ -1108,8 +1363,8 @@ document.addEventListener("DOMContentLoaded", () => {
     URL.revokeObjectURL(url);
     showToast(
       currentLang === "ar"
-        ? "✅ تم تحميل البرومبت النهائي كملف Markdown"
-        : "✅ Downloaded Final Master Prompt (.md)"
+        ? "تم تحميل البرومبت النهائي كملف Markdown"
+        : "Downloaded Final Master Prompt (.md)"
     );
   });
 
@@ -1122,14 +1377,18 @@ document.addEventListener("DOMContentLoaded", () => {
   if (userPhotoInput) {
     userPhotoInput.addEventListener("change", handleUserPhotoSelect);
   }
-  document.getElementById("selectUserPhotoBtn")?.addEventListener("click", () => {
-    userPhotoInput?.click();
+  document.querySelectorAll(".trigger-photo-renamer-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      userPhotoInput?.click();
+    });
   });
 
   // Reference Image Lightbox Modal
   const refModal = document.getElementById("refImageModal");
-  document.getElementById("openRefPreviewBtn")?.addEventListener("click", () => {
-    refModal?.showModal();
+  document.querySelectorAll(".open-ref-modal-trigger").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      refModal?.showModal();
+    });
   });
   document.getElementById("closeRefModalBtn")?.addEventListener("click", () => {
     refModal?.close();
@@ -1138,7 +1397,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === refModal) refModal.close();
   });
 
-  // Language switcher
+  // Prominent Language Switcher
   document.getElementById("langToggleBtn")?.addEventListener("click", toggleLanguage);
 
   // Initialize form & preview
